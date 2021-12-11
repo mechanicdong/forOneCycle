@@ -371,14 +371,24 @@
                                     <constraint firstAttribute="trailing" secondItem="cDL-lr-M27" secondAttribute="trailing" id="uw6-QG-ght"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVe-UL-4a8">
+                                <rect key="frame" x="20" y="74" width="144" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="91v-Of-Wtb" firstAttribute="top" secondItem="zVe-UL-4a8" secondAttribute="bottom" constant="135" id="3Df-be-gPw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zVe-UL-4a8" secondAttribute="trailing" constant="250" id="9So-hv-oxo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="91v-Of-Wtb" secondAttribute="bottom" constant="24" id="A1u-JG-cAN"/>
                             <constraint firstItem="30Q-uA-bGT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="MkC-Ym-JS4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="30Q-uA-bGT" secondAttribute="trailing" constant="24" id="aCn-lt-FLv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="91v-Of-Wtb" secondAttribute="trailing" constant="24" id="bsN-DQ-l5M"/>
+                            <constraint firstItem="zVe-UL-4a8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fPf-2f-zJp"/>
+                            <constraint firstItem="zVe-UL-4a8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="irK-rs-uTl"/>
                             <constraint firstItem="91v-Of-Wtb" firstAttribute="top" secondItem="30Q-uA-bGT" secondAttribute="bottom" constant="24" id="o6y-D5-Jry"/>
                             <constraint firstItem="30Q-uA-bGT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="tM5-fx-aET"/>
                             <constraint firstItem="91v-Of-Wtb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="zIe-QN-fTn"/>
@@ -386,6 +396,7 @@
                     </view>
                     <connections>
                         <outlet property="numberOutputLabel" destination="30Q-uA-bGT" id="XMP-9G-cCV"/>
+                        <outlet property="stackedOutputLabel" destination="zVe-UL-4a8" id="cPF-kU-Go3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

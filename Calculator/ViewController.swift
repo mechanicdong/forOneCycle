@@ -16,6 +16,7 @@ enum Operation {
 }
 class ViewController: UIViewController {
 
+    @IBOutlet weak var stackedOutputLabel: UILabel!
     @IBOutlet weak var numberOutputLabel: UILabel!
     //계산기 버튼을 누를 때마다 넘버아웃풋라벨에 표시되는 숫자를 가지고 있는 프로퍼티
     var displayNumber = ""
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
         if self.displayNumber.count < 9 {
             self.displayNumber += numberValue
             self.numberOutputLabel.text = self.displayNumber
+            self.stackedOutputLabel.text = self.displayNumber
         }
     }
     
@@ -51,6 +53,8 @@ class ViewController: UIViewController {
         self.result        = ""
         self.currentOperation = .unknown
         self.numberOutputLabel.text = "0"
+        //label로 현재 진행상황 모니터링 20211209@LDH
+        self.stackedOutputLabel.text = "0"
     }
     
     @IBAction func tabDotButton(_ sender: UIButton) {
@@ -58,6 +62,7 @@ class ViewController: UIViewController {
         if self.displayNumber.count < 8, !self.displayNumber.contains(".") {
             self.displayNumber += self.displayNumber.isEmpty ? "0." : "."
             self.numberOutputLabel.text = self.displayNumber
+            self.stackedOutputLabel.text = self.displayNumber
         }
     }
     
