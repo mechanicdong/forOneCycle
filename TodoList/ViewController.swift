@@ -11,11 +11,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     //할 일을 저장하는 배열 선언
-    var tasks = [Task]()
+    var tasks = [Task]() {
+        didSet {
+            self.saveTasks()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.loadTasks()
     }
     
     @IBAction func tabEditButton(_ sender: UIBarButtonItem) {
@@ -42,7 +47,35 @@ class ViewController: UIViewController {
         alert.addTextField(configurationHandler: {UITextField in UITextField.placeholder = "할 일을 입력해주세요"})
         self.present(alert, animated: true, completion: nil)
     }
+    func saveTasks() {
+        //할일들을 dictionaries 형태로 저장
+        let data = self.tasks.map {
+            [
+                "title": $0.title, //key
+                "done" : $0.done
+                
+            ]
+        }
+        //UserDafaults : 싱글톤이기 때문에 하나의 인스턴스에만 존재
+        //userDafaluts에 할 일을 저장하기
+        let userDefaluts = UserDefaults.standard
+        userDefaluts.set(data, forKey: "tasks")
+    }
+    //userDafaluts에 저장된 할 일을 로드
+    func loadTasks() {
+        let userDefaults = UserDefaults.standard //UserDafaults에 접근
+        //할 일 불러오기
+        //Any Type 리턴이므로 딕셔너리로 저장했으니 딕셔너리 배열형식으로 타입캐스팅
+        guard let data = userDefaults.object(forKey: "tasks") as? [[String : Any]] else { return }
+        self.tasks = data.compactMap{
+        guard let title = $0["title"] as? String else {return nil}
+        guard let done = $0["done"] as? Bool else {return nil}
+        return Task(title: title, done: done)
+        }
+    }
 }
+
+
 
 //코드의 가독성을 위해 ViewCOntroller를 따로 뺌
 extension ViewController : UITableViewDataSource {
