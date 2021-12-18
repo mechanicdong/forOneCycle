@@ -10,6 +10,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    //Edit 버튼으로 수정 모드 - Strong @20211218LDH start
+    @IBOutlet var editButton: UIBarButtonItem!
+    var doneButton : UIBarButtonItem?
+    //Edit 버튼으로 수정 모드 - Strong @20211218LDH end
+    
     //할 일을 저장하는 배열 선언
     var tasks = [Task]() {
         didSet {
@@ -19,12 +24,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTap)) //Edit 버튼으로 수정 모드 @20211218LDH
         self.tableView.dataSource = self
-        self.tableView.delegate = self //체크마크 생성 @20211218LDH        
+        self.tableView.delegate = self //체크마크 생성 @20211218LDH
         self.loadTasks()
     }
-    
+    //Edit 버튼으로 수정 모드 @20211218LDH start
+    @objc func doneButtonTap() {
+        self.navigationItem.leftBarButtonItem = self.editButton
+        self.tableView.setEditing(false, animated: true) //편집모드에서 빠져 나오게끔
+    }
+
     @IBAction func tabEditButton(_ sender: UIBarButtonItem) {
+
+        guard !self.tasks.isEmpty else { return } //tableView가 비어있으면 편집모드로 들어갈 필요가 없음
+        self.navigationItem.leftBarButtonItem = self.doneButton
+        self.tableView.setEditing(true, animated: true)
+    //Edit 버튼으로 수정 모드 @20211218LDH end
     }
     
     // '+' 버튼을 눌렀을 때 Alert이 뜨도록 설정
@@ -80,7 +96,7 @@ class ViewController: UIViewController {
 
 
 
-//코드의 가독성을 위해 ViewCOntroller를 따로 뺌
+//코드의 가독성을 위해 ViewController를 따로 뺌
 extension ViewController : UITableViewDataSource {
     
     func tableView(_ tableView : UITableView, numberOfRowsInSection section : Int ) -> Int {
@@ -88,7 +104,6 @@ extension ViewController : UITableViewDataSource {
         return self.tasks.count //배열의 개수 반환
     }
     
-   
     func tableView(_ tableView : UITableView, cellForRowAt indexPath : IndexPath) -> UITableViewCell {
         //스토리보드에서 정의한 셀을 dequeueReusableCell 메소드를 이용해 가져오게 됨
         //이를 가져온 Cell을 리턴하게 되면 스토리보드에서 구현된 셀이 테이블뷰에 표시 됨
@@ -107,6 +122,27 @@ extension ViewController : UITableViewDataSource {
         //체크마크 생성 @20211218LDH End
         return cell
     }
+    
+    //Edit 모드에서 '-' 버튼 or 스와이프 하여 할 일 삭제 @20211218LDH start
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        self.tasks.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        if self.tasks.isEmpty {
+            self.doneButtonTap()
+        }
+    }
+    //Edit 모드에서 '-' 버튼 or 스와이프 하여 할 일 삭제 @20211218LDH end
+    
+    //Edit 모드에서 moveRowAt 사용하여 할 일의 순서의 변경 기능 구현 @20211218LDH start
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        var tasks = self.tasks
+        let task = tasks[sourceIndexPath.row]
+        tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(task, at: destinationIndexPath.row)
+        self.tasks = tasks
+    }
+    //Edit 모드에서 moveRowAt 사용하여 할 일의 순서의 변경 기능 구현 @20211218LDH end
 }
 
 //체크마크 생성 @20211218LDH Start
