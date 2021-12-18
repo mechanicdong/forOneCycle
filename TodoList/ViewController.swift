@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.tableView.delegate = self //체크마크 생성 @20211218LDH        
         self.loadTasks()
     }
     
@@ -48,25 +49,27 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     func saveTasks() {
-        //할일들을 dictionaries 형태로 저장
+        //할일들을 UserDefaults에 dictionaries 형태로 저장
         let data = self.tasks.map {
             [
                 "title": $0.title, //key
                 "done" : $0.done
-                
             ]
         }
-        //UserDafaults : 싱글톤이기 때문에 하나의 인스턴스에만 존재
+        //UserDafaults : 싱글톤이기 때문에 하나의 인스턴스에만 존재, RunTime환경에 동작하면서 앱이 실행되는 동안
+        //기본저장소에 접근해 데이터를 기록하고 가져오는 인터페이스, 키 밸류 쌍으로 저장, 싱글톤 패턴, 하나의 인스턴스만 존재
         //userDafaluts에 할 일을 저장하기
-        let userDefaluts = UserDefaults.standard
+        let userDefaluts = UserDefaults.standard //UserDefaults에 접근할 수 있게 만듦
         userDefaluts.set(data, forKey: "tasks")
     }
-    //userDafaluts에 저장된 할 일을 로드
+    //userDafaluts에 저장된 할 일을 load
     func loadTasks() {
         let userDefaults = UserDefaults.standard //UserDafaults에 접근
         //할 일 불러오기
-        //Any Type 리턴이므로 딕셔너리로 저장했으니 딕셔너리 배열형식으로 타입캐스팅
+        //object method는 Any Type 리턴이므로 딕셔너리로 저장했으니 딕셔너리 배열형식으로 타입캐스팅
         guard let data = userDefaults.object(forKey: "tasks") as? [[String : Any]] else { return }
+        
+        //다시 tasks 배열에 저장
         self.tasks = data.compactMap{
         guard let title = $0["title"] as? String else {return nil}
         guard let done = $0["done"] as? Bool else {return nil}
@@ -95,7 +98,26 @@ extension ViewController : UITableViewDataSource {
         //배열에 저장되어 있는 할 일 요소들을 가져오기
         let task = self.tasks[indexPath.row]
         cell.textLabel?.text = task.title
+        //체크마크 생성 @20211218LDH Start
+        if task.done {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        //체크마크 생성 @20211218LDH End
         return cell
     }
 }
+
+//체크마크 생성 @20211218LDH Start
+extension ViewController : UITableViewDelegate {
+    //어떤셀이 선택되었는지 알려주는 셀
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var task = self.tasks[indexPath.row]
+        task.done = !task.done //true -> false, false -> true
+        self.tasks[indexPath.row] = task
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}
+//체크마크 생성 @20211218LDH End
 
