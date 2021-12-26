@@ -16,6 +16,7 @@
 		DD68C65A27789CA8000A6133 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68C65927789CA8000A6133 /* DiaryCell.swift */; };
 		DD68C65C27789CF6000A6133 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68C65B27789CF6000A6133 /* StarViewController.swift */; };
 		DD68C65E27789E46000A6133 /* StarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68C65D27789E46000A6133 /* StarCell.swift */; };
+		DD68C6602778A076000A6133 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68C65F2778A076000A6133 /* WriteDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DD68C65927789CA8000A6133 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		DD68C65B27789CF6000A6133 /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		DD68C65D27789E46000A6133 /* StarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCell.swift; sourceTree = "<group>"; };
+		DD68C65F2778A076000A6133 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				DD68C65927789CA8000A6133 /* DiaryCell.swift */,
 				DD68C65B27789CF6000A6133 /* StarViewController.swift */,
 				DD68C65D27789E46000A6133 /* StarCell.swift */,
+				DD68C65F2778A076000A6133 /* WriteDiaryViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD68C64A27789917000A6133 /* ViewController.swift in Sources */,
+				DD68C6602778A076000A6133 /* WriteDiaryViewController.swift in Sources */,
 				DD68C65E27789E46000A6133 /* StarCell.swift in Sources */,
 				DD68C64627789917000A6133 /* AppDelegate.swift in Sources */,
 				DD68C64827789917000A6133 /* SceneDelegate.swift in Sources */,
