@@ -76,6 +76,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="dataLabel" destination="Qrj-km-N6p" id="scg-tw-L8o"/>
+                                            <outlet property="titleLabel" destination="Exw-3O-yo9" id="Jjh-ba-EMM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -98,6 +102,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="O8e-c6-jrn" id="8Fi-of-ruG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +130,6 @@
         <!--즐겨찾기-->
         <scene sceneID="fe4-ad-PaZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-am-yze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="Lps-OY-mPY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="즐겨찾기" image="star" catalog="system" selectedImage="star.fill" id="1K3-N2-xFH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fzq-O6-2aZ">
@@ -134,6 +140,7 @@
                         <segue destination="q74-s6-7hl" kind="relationship" relationship="rootViewController" id="h4o-5S-HRh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAO-am-yze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-810" y="658"/>
         </scene>
@@ -277,8 +284,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="1yK-Ax-OgR">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="UxM-J2-8vd"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="UxM-J2-8vd">
+                            <connections>
+                                <action selector="tabConfirmButton:" destination="Xfu-P1-nDi" id="AMh-4b-Pbp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="UxM-J2-8vd" id="cOY-Yy-nEK"/>
+                        <outlet property="contentsTextView" destination="vv2-HN-seo" id="jE0-5x-fBb"/>
+                        <outlet property="dataTextField" destination="hQ7-Kv-SaD" id="VRK-Vp-1BF"/>
+                        <outlet property="titleTextField" destination="Kx2-QS-chg" id="YyV-LW-w56"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7G-AC-3n9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
