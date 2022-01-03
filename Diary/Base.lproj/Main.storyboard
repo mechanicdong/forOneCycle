@@ -366,6 +366,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="수정"/>
+                                        <connections>
+                                            <action selector="tabEditButton:" destination="gw7-WJ-kO6" eventType="touchUpInside" id="qeP-BF-9uN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12o-CO-Pyz">
                                         <rect key="frame" x="98.5" y="0.0" width="48.5" height="31"/>
@@ -373,6 +376,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="삭제">
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tabDeleteButton:" destination="gw7-WJ-kO6" eventType="touchUpInside" id="t0C-ir-7vu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

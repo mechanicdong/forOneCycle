@@ -7,11 +7,18 @@
 
 import UIKit
 
+//삭제 버튼을 눌렀을 때 해당 일기 삭제
+protocol DiaryDetailViewDelegate : AnyObject {
+    func didSelectDelete(indexPath : IndexPath) 
+}
+
 class DiaryDetailViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentsTextView: UITextView!
     @IBOutlet var dateLabel: UILabel!
+    
+    weak var delegate : DiaryDetailViewDelegate?
     
     var diary: Diary?
     var indexPath: IndexPath?
@@ -40,5 +47,8 @@ class DiaryDetailViewController: UIViewController {
     @IBAction func tabEditButton(_ sender: UIButton) {
     }
     @IBAction func tabDeleteButton(_ sender: UIButton) {
+        guard let indexPath = self.indexPath else { return }
+        self.delegate?.didSelectDelete(indexPath: indexPath)
+        self.navigationController?.popViewController(animated: true)
     }
 }
