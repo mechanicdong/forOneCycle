@@ -304,7 +304,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="TJW-QY-p77">
             <objects>
-                <viewController id="gw7-WJ-kO6" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="gw7-WJ-kO6" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PO0-gx-2Ry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,6 +396,11 @@
                             <constraint firstItem="tdP-cD-Ie1" firstAttribute="top" secondItem="Jzm-dn-Cyw" secondAttribute="top" constant="24" id="qyy-8G-6rE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="04h-F9-tOB" id="m8e-AT-mCf"/>
+                        <outlet property="dateLabel" destination="dgA-aN-NMP" id="L2p-pm-ggJ"/>
+                        <outlet property="titleLabel" destination="Pqk-L8-jOG" id="Gcz-bK-tsl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pv0-qg-Z6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
