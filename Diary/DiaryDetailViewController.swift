@@ -45,7 +45,14 @@ class DiaryDetailViewController: UIViewController {
     }
 
     @IBAction func tabEditButton(_ sender: UIButton) {
+        //수정버튼을 누르면 WriteDiaryViewController 화면이 Push
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "WriteDiaryViewController") as? WriteDiaryViewController else { return }
+        guard let indexPath = self.indexPath else { return }
+        guard let diary = self.diary else { return }
+        viewController.diaryEditorMode = .edit(indexPath, diary)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
+     
     @IBAction func tabDeleteButton(_ sender: UIButton) {
         guard let indexPath = self.indexPath else { return }
         self.delegate?.didSelectDelete(indexPath: indexPath)
