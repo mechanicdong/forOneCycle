@@ -50,12 +50,28 @@ class DiaryDetailViewController: UIViewController {
         guard let indexPath = self.indexPath else { return }
         guard let diary = self.diary else { return }
         viewController.diaryEditorMode = .edit(indexPath, diary)
+        //Notification Observing 구현
+        NotificationCenter.default.addObserver(self, selector: #selector(editDiaryNotification(_:)),
+                                               name: NSNotification.Name("editDiary"), object: nil)
+        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
      
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else { return } //host에서 보낸 diary 객체를 받기
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        self.diary = diary
+        self.configureView() //수정된 내용으로 View가 업데이트 되도록 설정
+    }
+    
     @IBAction func tabDeleteButton(_ sender: UIButton) {
         guard let indexPath = self.indexPath else { return }
         self.delegate?.didSelectDelete(indexPath: indexPath)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //instance가 deinit 될 때 해당인스턴스에 추가된 옵저버가 모두 제거되도록 하기
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
