@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
         self.loadDiaryList()
+        //일기장 메인화면에서도 옵저버를 추가하여 갱신되도록 수정
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(editDiaryNotification(_:)),
+                                               name: NSNotification.Name("editDiary"), //editDiary 관찰
+                                               object: nil )
     }
     
     // 등록된 일기가 CollectionView에 표시되도록 구현
@@ -30,6 +35,16 @@ class ViewController: UIViewController {
         self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+    }
+    
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else { return } //전달받은 다이어리 객체를 가져오기
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return } //indexPath의 row값 가져오기
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by:  {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.collectionView.reloadData()
     }
         
     // 일기작성 화면의 이동은 segueway 이용 -> prepare method
