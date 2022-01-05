@@ -18,6 +18,10 @@ class DiaryDetailViewController: UIViewController {
     @IBOutlet var contentsTextView: UITextView!
     @IBOutlet var dateLabel: UILabel!
     
+    //즐겨찾기 화면 버튼 프로퍼티 추가
+    var starButton: UIBarButtonItem?
+    
+    
     weak var delegate : DiaryDetailViewDelegate?
     
     var diary: Diary?
@@ -34,6 +38,11 @@ class DiaryDetailViewController: UIViewController {
         self.titleLabel.text = diary.title
         self.contentsTextView.text = diary.contents
         self.dateLabel.text = self.dateToString(date: diary.date)
+        //즐겨찾기 화면 버튼 인스턴스 생성
+        self.starButton = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(tabStarButton))
+        self.starButton?.image = diary.isStar ? UIImage(systemName: "star.fill") : UIImage(systemName:  "star")
+        self.starButton?.tintColor = .orange
+        self.navigationItem.rightBarButtonItem = self.starButton
     }
     
     //date type으로 전달받으면 문자열로 변환하는 메소드 생성
@@ -68,6 +77,18 @@ class DiaryDetailViewController: UIViewController {
         guard let indexPath = self.indexPath else { return }
         self.delegate?.didSelectDelete(indexPath: indexPath)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //즐겨찾기 버튼을 눌렀을 때 실행되는 selector
+    @objc func tabStarButton() {
+        //즐겨찾기 토글기능 구현
+        guard let isStar = self.diary?.isStar else { return }
+        if isStar {
+            self.starButton?.image = UIImage(systemName: "star")
+        } else {
+            self.starButton?.image = UIImage(systemName: "star.fill")
+        }
+        self.diary?.isStar = !isStar
     }
     
     //instance가 deinit 될 때 해당인스턴스에 추가된 옵저버가 모두 제거되도록 하기
