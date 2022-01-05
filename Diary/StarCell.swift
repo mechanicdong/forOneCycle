@@ -9,4 +9,6 @@ import UIKit
 
 class StarCell: UICollectionViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
 }
