@@ -9,9 +9,8 @@ import UIKit
 
 //삭제 버튼을 눌렀을 때 해당 일기 삭제
 protocol DiaryDetailViewDelegate : AnyObject {
-    func didSelectDelete(indexPath : IndexPath)
-    
-    func didSelectStar(indexPath : IndexPath, isStar : Bool)
+    //func didSelectDelete(indexPath : IndexPath)
+    //func didSelectStar(indexPath : IndexPath, isStar : Bool)
 }
 
 class DiaryDetailViewController: UIViewController {
@@ -23,8 +22,8 @@ class DiaryDetailViewController: UIViewController {
     //즐겨찾기 화면 버튼 프로퍼티 추가
     var starButton: UIBarButtonItem?
     
-    
-    weak var delegate : DiaryDetailViewDelegate?
+    //delegate로 전달하지 않고 NotificationCenter로 전달하기 때문에 주석
+    //weak var delegate : DiaryDetailViewDelegate?
     
     var diary: Diary?
     var indexPath: IndexPath?
@@ -77,7 +76,11 @@ class DiaryDetailViewController: UIViewController {
     
     @IBAction func tabDeleteButton(_ sender: UIButton) {
         guard let indexPath = self.indexPath else { return }
-        self.delegate?.didSelectDelete(indexPath: indexPath)
+        //self.delegate?.didSelectDelete(indexPath: indexPath)
+        NotificationCenter.default.post(
+            name: NSNotification.Name("deleteDiary"),
+            object: indexPath,
+            userInfo: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -92,7 +95,15 @@ class DiaryDetailViewController: UIViewController {
             self.starButton?.image = UIImage(systemName: "star.fill")
         }
         self.diary?.isStar = !isStar
-        self.delegate?.didSelectStar(indexPath: indexPath, isStar: self.diary?.isStar ?? false) //즐겨찾기 상태 전달
+        //self.delegate?.didSelectStar(indexPath: indexPath, isStar: self.diary?.isStar ?? false) //즐겨찾기 상태 전달
+        NotificationCenter.default.post(
+            name: NSNotification.Name("starDiary"),
+            object: [
+                    "diary" : self.diary, //즐겨찾기 된 다이어리 객체를 Notification에 전달
+                    "isStar" : self.diary?.isStar ?? false,
+                    "indexPath" : indexPath
+                    ],
+            userInfo: nil)
     }
     
     //instance가 deinit 될 때 해당인스턴스에 추가된 옵저버가 모두 제거되도록 하기

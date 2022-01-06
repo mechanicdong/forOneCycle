@@ -98,17 +98,23 @@ class WriteDiaryViewController: UIViewController {
         guard let title = self.titleTextField.text else { return }
         guard let contents = self.contentsTextView.text else { return }
         guard let date = self.diaryDate else { return }
-        let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+        
+        //Bug : 즐겨찾기 On AND 수정 후 즐겨찾기가  Off되는 현상
+        //let diary = Diary(title: title, contents: contents, date: date, isStar: false)
         
         switch self.diaryEditorMode {
         //case가 new라면 일기를 등록하도록
         case .new:
+            let diary = Diary(title: title, contents: contents, date: date, isStar: false)
             self.delegate?.didSelectRegister(diary: diary)
+            
         //일기를 수정하는 행위를 위해 notificationCenter의 Post Method를 이용해서 수정할 Diary 객체를 전달
-        case let .edit(indexpath , _):
-            NotificationCenter.default.post(name: NSNotification.Name("editDiary"),
-                                            object: diary,
-                                            userInfo: ["indexPath.row" : indexpath.row])
+        case let .edit(indexpath , diary):
+            let diary = Diary(title: title, contents: contents, date: date, isStar: diary.isStar)
+            NotificationCenter.default.post(
+                name: NSNotification.Name("editDiary"),
+                object: diary,
+                userInfo: ["indexPath.row" : indexpath.row])
         }        
         //self.delegate?.didSelectRegister(diary: diary)
         self.navigationController?.popViewController(animated: true)

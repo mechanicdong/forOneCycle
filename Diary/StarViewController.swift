@@ -15,13 +15,34 @@ class StarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureCollectionView()
+        //즐겨찾기 수정, 삭제 Notification 이벤트를 즐겨찾기에 옵저빙하여 이벤트가 일어나면 일기장화면, 즐겨찾기화면 모두 동기화되게 구현
+        self.loadStarDiaryList()
+        //수정이 일어났을 때 관찰하는 Observer 추가
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_:)),
+            name: NSNotification.Name("editDiary"),
+            object: nil)
+        //star Toggle이 일어났을 때 Observer
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(starDiaryNotification(_:)),
+            name: NSNotification.Name("starDiary"),
+            object: nil)
+        //삭제가 일어났을 때
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(deleteDiaryNotification(_:)),
+            name: NSNotification.Name("deleteDiary"),
+            object: nil)
     }
-    
+
+/*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loadStarDiaryList()
     }
-    
+*/
     //collectionView 속성 설정하는 프로퍼티
     private func configureCollectionView() {
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -55,7 +76,43 @@ class StarViewController: UIViewController {
         }).sorted(by: {
             $0.date.compare($1.date) == .orderedDescending //최신순
         })
-        self.collectionView.reloadData()
+        //self.collectionView.reloadData()
+    }
+    //수정이 일어났을 때 호출되는 메서드
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else { return }
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        collectionView.reloadData()
+    }
+    
+    //star Toggle 이벤트가 발생했을 때 호출되는 메서드
+    @objc func starDiaryNotification(_ notification: Notification) {
+        guard let starDiary = notification.object as? [String: Any] else { return }
+        guard let diary = starDiary["diary"] as? Diary else { return } //즐겨찾기 한 다이어리 객체 가져오기
+        guard let isStar = starDiary["isStar"] as? Bool else { return }
+        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        if isStar {
+            self.diaryList.append(diary)
+            self.diaryList = self.diaryList.sorted(by: {
+                $0.date.compare($1.date) == .orderedDescending
+            })
+            self.collectionView.reloadData()
+        } else {
+            //즐겨찾기가 해제되면 삭제되게 만들고
+            self.diaryList.remove(at: indexPath.row)
+            self.collectionView.deleteItems(at: [indexPath])
+        }
+    }
+    
+    //
+    @objc func deleteDiaryNotification(_ notification: Notification) {
+        guard let indexPath = notification.object as? IndexPath else { return }
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
     }
 }
 
@@ -80,4 +137,15 @@ extension StarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 20, height: 80)
     }
+}
+
+//즐겨찾기에서 항목을 선택하면 상세화면으로 이동 구현
+extension StarViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(identifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
+        let diary = self.diaryList[indexPath.row]
+        viewController.diary = diary
+        viewController.indexPath = indexPath
+        self.navigationController?.pushViewController(viewController, animated: true )
+    } 
 }

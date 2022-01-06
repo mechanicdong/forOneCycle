@@ -23,11 +23,23 @@ class ViewController: UIViewController {
         self.configureCollectionView()
         self.loadDiaryList()
         //일기장 메인화면에서도 옵저버를 추가하여 갱신되도록 수정
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(editDiaryNotification(_:)),
-                                               name: NSNotification.Name("editDiary"), //editDiary 관찰
-                                               object: nil )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_:)),
+            name: NSNotification.Name("editDiary"), //editDiary 관찰
+            object: nil )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(starDiaryNotification(_:)),
+            name: NSNotification.Name("starDiary"),
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(deleteDiaryNotification(_:)),
+            name: Notification.Name("deleteDiary"),
+            object: nil)
     }
+    
     
     // 등록된 일기가 CollectionView에 표시되도록 구현
     private func configureCollectionView() {
@@ -45,6 +57,19 @@ class ViewController: UIViewController {
             $0.date.compare($1.date) == .orderedDescending
         })
         self.collectionView.reloadData()
+    }
+    
+    @objc func starDiaryNotification(_ notification: Notification) {
+        guard let starDiary = notification.object as? [String: Any] else { return }
+        guard let isStar = starDiary["isStar"] as? Bool else { return }
+        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        self.diaryList[indexPath.row].isStar = isStar //즐겨찾기 여부를 전달받아 업데이트
+    }
+    
+    @objc func deleteDiaryNotification(_ notification: Notification) {
+        guard let indexPath = notification.object as? IndexPath else { return }
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
     }
         
     // 일기작성 화면의 이동은 segueway 이용 -> prepare method
@@ -134,18 +159,19 @@ extension ViewController: UICollectionViewDelegate {
         let diary = self.diaryList[indexPath.row]
         viewController.diary = diary
         viewController.indexPath  = indexPath
-        viewController.delegate = self
+        // viewController.delegate = self
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 extension ViewController : DiaryDetailViewDelegate {
-    func didSelectDelete(indexPath : IndexPath) {
+/*    func didSelectDelete(indexPath : IndexPath) {
         self.diaryList.remove(at: indexPath.row)
         self.collectionView.deleteItems(at: [indexPath])
     }
-    
-    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
+*/
+/*    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
         self.diaryList[indexPath.row].isStar = isStar //즐겨찾기 여부를 전달받아 업데이트
     }
+ */
 }
