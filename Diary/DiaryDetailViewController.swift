@@ -75,11 +75,13 @@ class DiaryDetailViewController: UIViewController {
     }
     
     @IBAction func tabDeleteButton(_ sender: UIButton) {
-        guard let indexPath = self.indexPath else { return }
+        //guard let indexPath = self.indexPath else { return }
+        guard let uuidString = self.diary?.uuidString else { return }
         //self.delegate?.didSelectDelete(indexPath: indexPath)
         NotificationCenter.default.post(
             name: NSNotification.Name("deleteDiary"),
-            object: indexPath,
+            //object: indexPath,
+            object : uuidString,
             userInfo: nil)
         self.navigationController?.popViewController(animated: true)
     }
@@ -88,7 +90,7 @@ class DiaryDetailViewController: UIViewController {
     @objc func tabStarButton() {
         //즐겨찾기 토글기능 구현
         guard let isStar = self.diary?.isStar else { return }
-        guard let indexPath = self.indexPath else { return }
+        //guard let indexPath = self.indexPath else { return }
         if isStar {
             self.starButton?.image = UIImage(systemName: "star")
         } else {
@@ -101,7 +103,8 @@ class DiaryDetailViewController: UIViewController {
             object: [
                     "diary" : self.diary, //즐겨찾기 된 다이어리 객체를 Notification에 전달
                     "isStar" : self.diary?.isStar ?? false,
-                    "indexPath" : indexPath
+                    //"indexPath" : indexPath
+                    "uuidString" : diary?.uuidString
                     ],
             userInfo: nil)
     }

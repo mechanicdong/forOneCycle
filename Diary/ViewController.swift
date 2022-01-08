@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             self,
             selector: #selector(editDiaryNotification(_:)),
             name: NSNotification.Name("editDiary"), //editDiary 관찰
-            object: nil )
+            object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(starDiaryNotification(_:)),
@@ -84,6 +84,7 @@ class ViewController: UIViewController {
         //배열에 있는 데이터를 딕셔너리 형태로
         let date = self.diaryList.map {
             [
+                "uuidString" : $0.uuidString,
                 "title" : $0.title,
                 "contents" : $0.contents,
                 "date" : $0.date,
@@ -101,11 +102,13 @@ class ViewController: UIViewController {
         guard let data = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
         //불러온 배열을 DiaryList배열에 넣어줘야 함
         self.diaryList = data.compactMap {
+            //저장된 uuidString도 불러오기 20200108@LDH
+            guard let uuidString = $0["uuidString"] as? String else { return nil }
             guard let title = $0["title"] as? String else { return nil }
             guard let contents = $0["contents"] as? String else { return nil }
             guard let date = $0["date"] as? Date else { return nil }
             guard let isStar = $0["isStar"] as? Bool else { return nil }
-            return Diary(title: title, contents: contents, date: date, isStar: isStar)
+            return Diary(uuidString: uuidString ,title: title, contents: contents, date: date, isStar: isStar)
         }
         //일기를 불러올 때 최신순으로 불러오도록 설정
         self.diaryList = self.diaryList.sorted(by: {
@@ -170,6 +173,7 @@ extension ViewController : DiaryDetailViewDelegate {
         self.collectionView.deleteItems(at: [indexPath])
     }
 */
+    
 /*    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
         self.diaryList[indexPath.row].isStar = isStar //즐겨찾기 여부를 전달받아 업데이트
     }

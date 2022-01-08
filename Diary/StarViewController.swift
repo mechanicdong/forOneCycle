@@ -15,7 +15,7 @@ class StarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureCollectionView()
-        //즐겨찾기 수정, 삭제 Notification 이벤트를 즐겨찾기에 옵저빙하여 이벤트가 일어나면 일기장화면, 즐겨찾기화면 모두 동기화되게 구현
+        //즐겨찾기 수정, 삭제를 Notification 이벤트를 즐겨찾기에 옵저빙하여 이벤트가 일어나면 일기장화면, 즐겨찾기화면 모두 동기화되게 구현
         self.loadStarDiaryList()
         //수정이 일어났을 때 관찰하는 Observer 추가
         NotificationCenter.default.addObserver(
@@ -66,11 +66,13 @@ class StarViewController: UIViewController {
         guard let data = userDefaults.object(forKey: "diaryList") as? [[String : Any]] else { return }
         //불러온 data를 diaryList 배열에 넣어주기
         self.diaryList = data.compactMap {
+            //저장된 uuidString도 불러오기 20200108@LDH
+            guard let uuidString = $0["uuidString"] as? String else { return nil }
             guard let title = $0["title"] as? String else { return nil }
             guard let contents = $0["contents"] as? String else { return nil }
             guard let date = $0["date"] as? Date else { return nil }
             guard let isStar = $0["isStar"] as? Bool else { return nil }
-            return Diary(title: title, contents: contents, date: date, isStar: isStar)
+            return Diary(uuidString: uuidString, title: title, contents: contents, date: date, isStar: isStar)
         }.filter({
             $0.isStar == true //즐겨찾기 된 일기만 가져오기
         }).sorted(by: {

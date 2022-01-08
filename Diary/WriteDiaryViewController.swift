@@ -105,16 +105,30 @@ class WriteDiaryViewController: UIViewController {
         switch self.diaryEditorMode {
         //case가 new라면 일기를 등록하도록
         case .new:
-            let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+            
+            let diary = Diary(
+                uuidString : UUID().uuidString, //일기생성마다 UUID.Stirng 프로퍼티에 일기를 특정할 수 있는 고유한 값 생성
+                title: title,
+                contents: contents,
+                date: date,
+                isStar: false)
             self.delegate?.didSelectRegister(diary: diary)
             
         //일기를 수정하는 행위를 위해 notificationCenter의 Post Method를 이용해서 수정할 Diary 객체를 전달
         case let .edit(indexpath , diary):
-            let diary = Diary(title: title, contents: contents, date: date, isStar: diary.isStar)
+            let diary = Diary(
+                uuidString : diary.uuidString,
+                title: title,
+                contents: contents,
+                date: date,
+                isStar: diary.isStar)
             NotificationCenter.default.post(
                 name: NSNotification.Name("editDiary"),
                 object: diary,
-                userInfo: ["indexPath.row" : indexpath.row])
+                userInfo:
+                    //["indexPath.row" : indexpath.row]
+                    nil 
+            )
         }        
         //self.delegate?.didSelectRegister(diary: diary)
         self.navigationController?.popViewController(animated: true)
