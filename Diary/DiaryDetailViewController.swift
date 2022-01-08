@@ -27,11 +27,15 @@ class DiaryDetailViewController: UIViewController {
     
     var diary: Diary?
     var indexPath: IndexPath?
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(starDiaryNotification(_:)),
+            name: NSNotification.Name("starDiary") ,
+            object: nil)
     }
     
     private func configureView() {
@@ -69,9 +73,22 @@ class DiaryDetailViewController: UIViewController {
      
     @objc func editDiaryNotification(_ notification: Notification) {
         guard let diary = notification.object as? Diary else { return } //host에서 보낸 diary 객체를 받기
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        //guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
         self.diary = diary
         self.configureView() //수정된 내용으로 View가 업데이트 되도록 설정
+    }
+    
+    //같은 일기인데도 즐겨찾기와 일기탭에서 즐겨찾기 싱크가 맞지 않는 문제 해결
+    @objc func starDiaryNotification(_ notification: Notification) {
+        guard let starDiary = notification.object as? [String: Any] else { return }
+        guard let isStar = starDiary["isStar"] as? Bool else { return }
+        guard let uuidString = starDiary["uuidString"] as? String else { return }
+        guard let diary = self.diary else { return }
+        //event로 전달받은 uuidString과 같다면
+        if diary.uuidString == uuidString {
+            self.diary?.isStar = isStar
+            self.configureView()
+        }
     }
     
     @IBAction func tabDeleteButton(_ sender: UIButton) {

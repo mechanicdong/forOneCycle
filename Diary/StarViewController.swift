@@ -62,7 +62,7 @@ class StarViewController: UIViewController {
     //UserDefaults에서 즐겨찾기된 항목만 가져오기, 우선 메서드 설정
     private func loadStarDiaryList() {
         let userDefaults = UserDefaults.standard
-        //diaryList key value를 넘겨줘서 일기장을 가져오기
+        //diary List key value를 넘겨줘서 일기장을 가져오기
         guard let data = userDefaults.object(forKey: "diaryList") as? [[String : Any]] else { return }
         //불러온 data를 diaryList 배열에 넣어주기
         self.diaryList = data.compactMap {
@@ -83,8 +83,10 @@ class StarViewController: UIViewController {
     //수정이 일어났을 때 호출되는 메서드
     @objc func editDiaryNotification(_ notification: Notification) {
         guard let diary = notification.object as? Diary else { return }
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
-        self.diaryList[row] = diary
+        //guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == diary.uuidString}) else { return }
+        //self.diaryList[row] = diary
+        self.diaryList[index] = diary
         self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
         })
@@ -96,7 +98,12 @@ class StarViewController: UIViewController {
         guard let starDiary = notification.object as? [String: Any] else { return }
         guard let diary = starDiary["diary"] as? Diary else { return } //즐겨찾기 한 다이어리 객체 가져오기
         guard let isStar = starDiary["isStar"] as? Bool else { return }
-        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        //guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        guard let uuidString = starDiary["uuidString"] as? String else { return }
+        
+        /*guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString}) else { return }
+         guard를 이 부분에서 추가하면 즐겿자기 시 즐겨찾기 화면에 일기가 추가되지 않을수도, 해당하는 일기가 없으면 return을 통해 함수가 조기종료 되기 때문에 즐겨찾기가 해지될 때만 이 로직이 실행되도록
+         */
         if isStar {
             self.diaryList.append(diary)
             self.diaryList = self.diaryList.sorted(by: {
@@ -104,17 +111,22 @@ class StarViewController: UIViewController {
             })
             self.collectionView.reloadData()
         } else {
+            guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString}) else { return }
             //즐겨찾기가 해제되면 삭제되게 만들고
-            self.diaryList.remove(at: indexPath.row)
-            self.collectionView.deleteItems(at: [indexPath])
+            //self.diaryList.remove(at: indexPath.row)
+            self.diaryList.remove(at: index)
+            self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
         }
     }
     
     //
     @objc func deleteDiaryNotification(_ notification: Notification) {
-        guard let indexPath = notification.object as? IndexPath else { return }
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
+        //guard let indexPath = notification.object as? IndexPath else { return }
+        guard let uuidString = notification.object as? String else { return }
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString}) else { return }
+        //self.diaryList.remove(at: indexPath.row)
+        self.diaryList.remove(at: index)
+        self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
     }
 }
 

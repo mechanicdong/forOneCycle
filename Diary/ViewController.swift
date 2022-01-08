@@ -51,8 +51,11 @@ class ViewController: UIViewController {
     
     @objc func editDiaryNotification(_ notification: Notification) {
         guard let diary = notification.object as? Diary else { return } //전달받은 다이어리 객체를 가져오기
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return } //indexPath의 row값 가져오기
-        self.diaryList[row] = diary
+        //guard let row = notification.userInfo?["indexPath.row"] as? Int else { return } //indexPath의 row값 가져오기
+        //indexPath대신 uuidString을 활용하여 이벤트를 받는 쪽도 구현
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == diary.uuidString}) else {return}
+        //self.diaryList[row] = diary
+        self.diaryList[index] = diary
         self.diaryList = self.diaryList.sorted(by:  {
             $0.date.compare($1.date) == .orderedDescending
         })
@@ -62,14 +65,23 @@ class ViewController: UIViewController {
     @objc func starDiaryNotification(_ notification: Notification) {
         guard let starDiary = notification.object as? [String: Any] else { return }
         guard let isStar = starDiary["isStar"] as? Bool else { return }
-        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
-        self.diaryList[indexPath.row].isStar = isStar //즐겨찾기 여부를 전달받아 업데이트
+        
+        //guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        guard let uuidString = starDiary["uuidString"] as? String else { return }
+        guard let index = self.diaryList.firstIndex(where: { $0.uuidString == uuidString }) else { return }
+        
+        //self.diaryList[indexPath.row].isStar = isStar //즐겨찾기 여부를 전달받아 업데이트
+        self.diaryList[index].isStar = isStar
     }
     
     @objc func deleteDiaryNotification(_ notification: Notification) {
-        guard let indexPath = notification.object as? IndexPath else { return }
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
+        //guard let indexPath = notification.object as? IndexPath else { return }
+        guard let uuidString = notification.object as? String else { return }
+        guard let index = self.diaryList.firstIndex(where: {$0.uuidString == uuidString}) else { return }
+        //self.diaryList.remove(at: indexPath.row)
+        self.diaryList.remove(at: index)
+        //self.collectionView.deleteItems(at: [indexPath])
+        self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)]) //단일 section이므로
     }
         
     // 일기작성 화면의 이동은 segueway 이용 -> prepare method
