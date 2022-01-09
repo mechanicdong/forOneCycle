@@ -24,7 +24,7 @@ Create 20211226@LDH
 + 옵저버를 사용하여 일기 생성, 수정, 삭제, 즐겨찾기 이벤트 발생 시 메서드 구현
 + UICollectionViewdelegateFlowlayout을 채택하여 CollectionView에 Layout 구현
 + 즐겨찾기에서 항목 선택 시 상세화면으로 이동하여 수정, 삭제, 즐겨찾기 해제가 가능
-+ collectionView 속서 설정 중 dataSource 프로토콜 및 필수 메서드(numberOfItemsInSection, cellForItemAt) 구현
++ collectionView 속성 설정 중 dataSource 프로토콜 및 필수 메서드(numberOfItemsInSection, cellForItemAt) 구현
 + 제목, 내용, 날짜 중 하나라도 입력되어 있지 않으면 '등록버튼' 비활성화
 
 
