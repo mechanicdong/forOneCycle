@@ -100,6 +100,7 @@
                         <outlet property="minTempLabel" destination="kff-aq-QDG" id="KBl-9u-QRw"/>
                         <outlet property="tempLabel" destination="Uac-2b-BYK" id="k6I-bw-OwT"/>
                         <outlet property="weatherDescriptionLabel" destination="ulh-ob-0XV" id="DNC-DE-mdd"/>
+                        <outlet property="weatherStackView" destination="2uW-8r-4Nq" id="fkq-zp-tVT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
