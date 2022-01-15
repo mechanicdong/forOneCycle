@@ -13,6 +13,7 @@
 		DD36528B27906E1A00FDD3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD36528927906E1A00FDD3FF /* Main.storyboard */; };
 		DD36528D27906E1B00FDD3FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD36528C27906E1B00FDD3FF /* Assets.xcassets */; };
 		DD36529027906E1B00FDD3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD36528E27906E1B00FDD3FF /* LaunchScreen.storyboard */; };
+		DD4442532792F7F500697371 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4442522792F7F500697371 /* WeatherInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DD36528C27906E1B00FDD3FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD36528F27906E1B00FDD3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD36529127906E1B00FDD3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD4442522792F7F500697371 /* WeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				DD36528C27906E1B00FDD3FF /* Assets.xcassets */,
 				DD36528E27906E1B00FDD3FF /* LaunchScreen.storyboard */,
 				DD36529127906E1B00FDD3FF /* Info.plist */,
+				DD4442522792F7F500697371 /* WeatherInformation.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD36528827906E1A00FDD3FF /* ViewController.swift in Sources */,
+				DD4442532792F7F500697371 /* WeatherInformation.swift in Sources */,
 				DD36528427906E1A00FDD3FF /* AppDelegate.swift in Sources */,
 				DD36528627906E1A00FDD3FF /* SceneDelegate.swift in Sources */,
 			);
