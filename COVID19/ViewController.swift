@@ -22,13 +22,63 @@ class ViewController: UIViewController {
             guard let self = self else { return } //일시적으로 self가 strong reference가 되도록 만듦
             switch result {
             case let .success(result):
-                debugPrint("success \(result)")
-                
+                self.configureStackView(koreaCovieOverview: result.korea)
+                let covidOverviewList = self.makeCovidOverviewList(cityCovidOverview: result)
+                self.configureChatView(covidOverviewList: covidOverviewList)
             case let .failure(error):
                 debugPrint("Error \(error)")
             }
         })
     }
+    
+    //PieCharts 표시
+    func makeCovidOverviewList(
+        cityCovidOverview: CityCovidOverview
+    ) -> [CovidOverView] {
+        return [
+            //JSON 응답이 배열이 아닌 하나의 객체로 오기 때문에 CityCovidOverview 객체안에 있는 시도별 객체를 배열에 추가
+            cityCovidOverview.seoul,
+            cityCovidOverview.busan,
+            cityCovidOverview.daegu,
+            cityCovidOverview.incheon,
+            cityCovidOverview.gwangju,
+            cityCovidOverview.daejeon,
+            cityCovidOverview.ulsan,
+            cityCovidOverview.sejong,
+            cityCovidOverview.gyeonggi,
+            cityCovidOverview.chungbuk,
+            cityCovidOverview.chungnam,
+            cityCovidOverview.gyeongbuk,
+            cityCovidOverview.gyeongnam,
+            cityCovidOverview.jeju,
+        ]
+    }
+    
+    func configureChatView(covidOverviewList: [CovidOverView]) {
+        //Piecharts 객체로 매핑시키는 코드 작성
+        let entries = covidOverviewList.compactMap { [weak self] overview -> PieChartDataEntry? in
+            guard let self = self else { return nil } //일시적으로 self가 String reference
+        //PieCharts 데이터 객체 엔트리로 매핑하기 위해
+            return PieChartDataEntry(
+                value: self.removeFormatString(string: overview.newCase),
+                label: overview.countryName,
+                data: overview)
+        }
+        let dataSet = PieChartDataSet(entries: entries, label: "코로나 발생 현황")
+        self.pieChartView.data = PieChartData(dataSet: dataSet)
+    }
+    
+    func removeFormatString(string: String) -> Double {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.number(from: string)?.doubleValue ?? 0 //nil이면 0
+    }
+    
+    func configureStackView(koreaCovieOverview: CovidOverView) {
+        self.totalCaseLabel.text = "\(koreaCovieOverview.totalCase)명"
+        self.newCaseLabel.text = "\(koreaCovieOverview.newCase)명"
+    }
+    
     //Alamofire를 이용해서 시도별 코로나 현황을 가져올 수 있는 API 호출
     func fetchCovidOverview(
         //escaping 클로저: 함수의 인자로 클로저가 전달되지만 함수가 반환된 후에도 실행되는 걸 의미
