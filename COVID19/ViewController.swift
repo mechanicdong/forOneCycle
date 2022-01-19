@@ -65,6 +65,20 @@ class ViewController: UIViewController {
                 data: overview)
         }
         let dataSet = PieChartDataSet(entries: entries, label: "코로나 발생 현황")
+        dataSet.sliceSpace = 1 //항목간 간격을 1로
+        dataSet.entryLabelColor = .black
+        dataSet.xValuePosition = .outsideSlice //항목 이름이 PieCharts 바깥선으로 표시되도록
+        dataSet.valueLinePart1OffsetPercentage = 0.8
+        dataSet.valueLinePart1Length = 0.2
+        dataSet.valueLinePart2Length = 0.3
+        
+        //그래프 항목이 다양한 색상으로 표시되도록
+        dataSet.colors = ChartColorTemplates.vordiplom() +
+        ChartColorTemplates.joyful() +
+        ChartColorTemplates.liberty() +
+        ChartColorTemplates.pastel() +
+        ChartColorTemplates.material() 
+        
         self.pieChartView.data = PieChartData(dataSet: dataSet)
     }
     
