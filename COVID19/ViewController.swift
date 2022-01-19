@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         let dataSet = PieChartDataSet(entries: entries, label: "코로나 발생 현황")
         dataSet.sliceSpace = 1 //항목간 간격을 1로
         dataSet.entryLabelColor = .black
+        dataSet.valueTextColor = .black //Piecharts 항목 안의 값을 검정으로
         dataSet.xValuePosition = .outsideSlice //항목 이름이 PieCharts 바깥선으로 표시되도록
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
@@ -77,9 +78,12 @@ class ViewController: UIViewController {
         ChartColorTemplates.joyful() +
         ChartColorTemplates.liberty() +
         ChartColorTemplates.pastel() +
-        ChartColorTemplates.material() 
+        ChartColorTemplates.material()
         
         self.pieChartView.data = PieChartData(dataSet: dataSet)
+        
+        //그래프를 회전(가독성 증가)
+        self.pieChartView.spin(duration: 0.3, fromAngle: self.pieChartView.rotationAngle, toAngle: self.pieChartView.rotationAngle + 80)
     }
     
     func removeFormatString(string: String) -> Double {
