@@ -12,14 +12,21 @@ import Charts //for PieChartView
 
 class ViewController: UIViewController {
 
-    @IBOutlet var totalCaseLabel: UILabel!
-    @IBOutlet var newCaseLabel: UILabel!
-    @IBOutlet var pieChartView: PieChartView!
+    @IBOutlet weak var totalCaseLabel: UILabel!
+    @IBOutlet weak var newCaseLabel: UILabel!
+    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicatorView.startAnimating() //Server에서 응답이 오기 전 indicator 애니메이션 실행
         self.fetchCovidOverview(completionHandler: { [weak self] result in //순환참조 방지 - weak self
             guard let self = self else { return } //일시적으로 self가 strong reference가 되도록 만듦
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            self.labelStackView.isHidden = false
+            self.pieChartView.isHidden = false
             switch result {
             case let .success(result):
                 self.configureStackView(koreaCovieOverview: result.korea)
@@ -55,6 +62,7 @@ class ViewController: UIViewController {
     }
     
     func configureChatView(covidOverviewList: [CovidOverView]) {
+        self.pieChartView.delegate = self
         //Piecharts 객체로 매핑시키는 코드 작성
         let entries = covidOverviewList.compactMap { [weak self] overview -> PieChartDataEntry? in
             guard let self = self else { return nil } //일시적으로 self가 String reference
@@ -115,9 +123,9 @@ class ViewController: UIViewController {
                 do {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(CityCovidOverview.self, from: data) //매핑할 객체타입 : CityCovidOverview.self, data: 서버에서 전달받은 데이터
-                    completionHandler(.success(result))
+                    completionHandler(Result<CityCovidOverview, Error>.success(result))
                 } catch {
-                    completionHandler(.failure(error))
+                    completionHandler(Result<CityCovidOverview, Error>.failure(error))
                 }
             //요청 실패 시 case
             case let .failure(error):
@@ -128,3 +136,11 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let covidDetailViewController = self.storyboard?.instantiateViewController(identifier: "CovidDetailViewController") as? CovidDetailViewController else { return }
+        guard let covidOverview = entry.data as? CovidOverView else { return }
+        covidDetailViewController.covidOverview = covidOverview
+        self.navigationController?.pushViewController(covidDetailViewController, animated: true)
+    }
+}
