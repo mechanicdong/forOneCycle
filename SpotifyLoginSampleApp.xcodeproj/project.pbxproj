@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD06673B279A8FFA00BEFF57 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06673A279A8FFA00BEFF57 /* mainViewController.swift */; };
 		DDDF2959279A735100A9856C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF2958279A735100A9856C /* AppDelegate.swift */; };
 		DDDF295B279A735100A9856C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF295A279A735100A9856C /* SceneDelegate.swift */; };
 		DDDF2960279A735100A9856C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDF295E279A735100A9856C /* Main.storyboard */; };
 		DDDF2962279A735200A9856C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDF2961279A735200A9856C /* Assets.xcassets */; };
 		DDDF2965279A735200A9856C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDF2963279A735200A9856C /* LaunchScreen.storyboard */; };
 		DDDF296D279A73CE00A9856C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF296C279A73CE00A9856C /* LoginViewController.swift */; };
+		DDDF296F279A7C2300A9856C /*  EnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF296E279A7C2300A9856C /*  EnterEmailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD06673A279A8FFA00BEFF57 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		DDDF2955279A735100A9856C /* SpotifyLoginSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyLoginSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDF2958279A735100A9856C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDF295A279A735100A9856C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		DDDF2964279A735200A9856C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDDF2966279A735200A9856C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDF296C279A73CE00A9856C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DDDF296E279A7C2300A9856C /*  EnterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " EnterEmailViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		DDDF2957279A735100A9856C /* SpotifyLoginSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				DD06673A279A8FFA00BEFF57 /* mainViewController.swift */,
 				DDDF2958279A735100A9856C /* AppDelegate.swift */,
 				DDDF295A279A735100A9856C /* SceneDelegate.swift */,
 				DDDF295E279A735100A9856C /* Main.storyboard */,
+				DDDF296E279A7C2300A9856C /*  EnterEmailViewController.swift */,
 				DDDF296C279A73CE00A9856C /* LoginViewController.swift */,
 				DDDF2961279A735200A9856C /* Assets.xcassets */,
 				DDDF2963279A735200A9856C /* LaunchScreen.storyboard */,
@@ -140,7 +146,9 @@
 			files = (
 				DDDF296D279A73CE00A9856C /* LoginViewController.swift in Sources */,
 				DDDF2959279A735100A9856C /* AppDelegate.swift in Sources */,
+				DD06673B279A8FFA00BEFF57 /* mainViewController.swift in Sources */,
 				DDDF295B279A735100A9856C /* SceneDelegate.swift in Sources */,
+				DDDF296F279A7C2300A9856C /*  EnterEmailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
