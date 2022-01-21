@@ -38,8 +38,6 @@ class mainViewController: UIViewController {
         } catch let signOutError as NSError {
             print("Error: signout \(signOutError.localizedDescription)")
         }
-        
-        
     }
     
 }

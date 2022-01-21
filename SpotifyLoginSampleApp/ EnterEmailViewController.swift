@@ -44,12 +44,15 @@ class EnterEmailViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) {
             [weak self] authResult, error in //순환참조 방지 weak self
             guard let self = self else { return }
+            //클로저 내부에서 self를 임시적으로 strong reference로 가지고 있을 수 있는데, 클로저 내부에서 guard 구문을 사용하여 self를 언랩핑 해주는 것
+            //클로저 내부에서 self를 strong reference로 사용할 수 있고, 외부에서 캡처한 self가
+            //nil이 될 경우 guard 구문에서 return 시키므로 메모리 릭에 대한 걱정 없이 사용할 수 있다.
             
             //Error 처리(ex: Email 중복)
             if let error = error {
                 let code = (error as NSError).code
                 switch code {
-                case 17007:   //이미 가입한 계정일 때, 17007 error code는 디버깅 후 'po error'를 치면 확인 가능
+                case 17007: //이미 가입한 계정일 때, 17007 error code는 디버깅 후 'po error'를 치면 확인 가능
                     //로그인 하기를 따로 제공하기
                     self.loginUser(withEmail: email, password: password)
                 default:
@@ -58,8 +61,8 @@ class EnterEmailViewController: UIViewController {
             } else { //error가 발생하지 않으면 메인으로
                 self.showMainViewController()
             }
-        }
-    }
+        } //end of 신규 사용자 생성 closure
+    } // end of nextButtonTapped
     
     private func showMainViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -102,10 +105,8 @@ extension EnterEmailViewController: UITextFieldDelegate {
             isPasswordEmpty = false
         }
         //let isEmailEmpty = emailTextField.text == ""
-    
         //let isPasswordEmpty = passwordTextField.text = ""
         nextButton.isEnabled = !isEmailEmpty && !isPasswordEmpty
-        
     }
 }
  
