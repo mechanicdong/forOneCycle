@@ -7,10 +7,11 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+@main //GIDSignInDelegate 참조 과정에서 GIDSignIn version을 <5.0.0으로 pod에서 수정함
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -19,7 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Firebase 초기화
         FirebaseApp.configure()
         
+        //Google Login Delegate 추가
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
+    }
+    
+    //OpenURL 메서드 : 구글에 인증프로세스가 끝날 때 앱이 수신하는 URL을 처리하는 역할
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String ,annotation: [:])
     }
 
     // MARK: UISceneSession Lifecycle
@@ -37,5 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
 }
 

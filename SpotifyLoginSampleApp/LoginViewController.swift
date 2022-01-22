@@ -5,12 +5,12 @@
 //  Created by 이동희 on 2022/01/21.
 //
 
-import Foundation
+import GoogleSignIn
 import UIKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailLoginButton: UIButton!
-    @IBOutlet weak var googleLoginButton: UIButton!
+    @IBOutlet weak var googleLoginButton: GIDSignInButton! //UIButton을 상속
     @IBOutlet weak var appleLoginButton: UIButton!
     
     override func viewDidLoad() {
