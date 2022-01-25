@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		DD07BC5127A027C500011DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC5027A027C500011DE6 /* AppDelegate.swift */; };
 		DD07BC5327A027C500011DE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC5227A027C500011DE6 /* SceneDelegate.swift */; };
-		DD07BC5527A027C500011DE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC5427A027C500011DE6 /* ViewController.swift */; };
 		DD07BC5827A027C500011DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC5627A027C500011DE6 /* Main.storyboard */; };
 		DD07BC5A27A027C700011DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC5927A027C700011DE6 /* Assets.xcassets */; };
 		DD07BC5D27A027C700011DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC5B27A027C700011DE6 /* LaunchScreen.storyboard */; };
+		DD07BC6527A027E800011DE6 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC6427A027E800011DE6 /* CardListViewController.swift */; };
+		DD07BC6727A02A5000011DE6 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC6627A02A5000011DE6 /* CreditCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD07BC4D27A027C500011DE6 /* CreditCardList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditCardList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD07BC5027A027C500011DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD07BC5227A027C500011DE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD07BC5427A027C500011DE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD07BC5727A027C500011DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD07BC5927A027C700011DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD07BC5C27A027C700011DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD07BC5E27A027C700011DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD07BC6427A027E800011DE6 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		DD07BC6627A02A5000011DE6 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 		DD07BC4F27A027C500011DE6 /* CreditCardList */ = {
 			isa = PBXGroup;
 			children = (
+				DD07BC6427A027E800011DE6 /* CardListViewController.swift */,
 				DD07BC5027A027C500011DE6 /* AppDelegate.swift */,
 				DD07BC5227A027C500011DE6 /* SceneDelegate.swift */,
-				DD07BC5427A027C500011DE6 /* ViewController.swift */,
 				DD07BC5627A027C500011DE6 /* Main.storyboard */,
+				DD07BC6627A02A5000011DE6 /* CreditCard.swift */,
 				DD07BC5927A027C700011DE6 /* Assets.xcassets */,
 				DD07BC5B27A027C700011DE6 /* LaunchScreen.storyboard */,
 				DD07BC5E27A027C700011DE6 /* Info.plist */,
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD07BC5527A027C500011DE6 /* ViewController.swift in Sources */,
+				DD07BC6727A02A5000011DE6 /* CreditCard.swift in Sources */,
+				DD07BC6527A027E800011DE6 /* CardListViewController.swift in Sources */,
 				DD07BC5127A027C500011DE6 /* AppDelegate.swift in Sources */,
 				DD07BC5327A027C500011DE6 /* SceneDelegate.swift in Sources */,
 			);
