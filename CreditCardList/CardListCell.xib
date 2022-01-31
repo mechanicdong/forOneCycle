@@ -81,7 +81,7 @@
             <connections>
                 <outlet property="cardImageView" destination="SY4-3Z-te4" id="k5D-ah-OKJ"/>
                 <outlet property="cardNameLabel" destination="htX-hk-A9V" id="gnJ-B4-MCz"/>
-                <outlet property="promotionLabel" destination="htX-hk-A9V" id="CAu-aZ-HXc"/>
+                <outlet property="promotionLabel" destination="I5t-5a-IM1" id="ac0-WB-mtF"/>
                 <outlet property="rankLabel" destination="FvD-3X-t7d" id="vEg-Cb-6V0"/>
             </connections>
             <point key="canvasLocation" x="139" y="114"/>
