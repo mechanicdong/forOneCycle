@@ -77,11 +77,11 @@ class CardViewListController: UITableViewController {
         detailViewController.promotionDetail = creditCardList[indexPath.row].promotionDetail
         self.show(detailViewController, sender: nil)
         
-        //Option 1 : cardID라는 key value를 가져와서 찾는 방식
+        //Option 1 : cardID라는 key value를 가져와서 찾는 방식(경로를 알 때)
         let cardID = creditCardList[indexPath.row].id
         //ref.child("Item\(cardID)/isSelected").setValue(true)
         
-        //Option 2 : 특정 key 값이 cardID와 같은 객체를 찾아 스냅샷으로 찍음
+        //Option 2 : 특정 key 값이 cardID와 같은 객체를 찾아 스냅샷으로 찍음(경로를 모를 때)
         ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
             guard let self = self,
                   let value = snapshot.value as? [String: [String: Any]],
@@ -89,6 +89,27 @@ class CardViewListController: UITableViewController {
             
             self.ref.child("\(key)/isSelected").setValue(true)
         } //cardID와 같은 객체를 가져오라는 명령
-        
     }
+    
+    //RealTime DB Delete Start
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //Option 1
+            let cardID = creditCardList[indexPath.row].id
+            ref.child("Item\(cardID)").removeValue() //경로 전체의 data가 삭제
+            
+            //Option 2 : 경로 모를 때 (검색 후 삭제 방식)
+            ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
+                guard let self = self,
+                      let value = snapshot.value as? [String : [String: Any]],
+                      let key = value.keys.first else { return } //snapshot의 value는 array로 전달됨 -> id는 모든 객체에서 고유하기 때문에 Array를 주더라도 무조건 하나의 인덱스만을 가지기 때문에 first
+                self.ref.child(key).removeValue()                
+            }
+        }
+    }
+    //RealTime DB Delete End
 }
