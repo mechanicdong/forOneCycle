@@ -76,5 +76,19 @@ class CardViewListController: UITableViewController {
         guard let detailViewController = storyboard.instantiateViewController(identifier: "CardDetailViewController") as? CardDetailViewController else { return }
         detailViewController.promotionDetail = creditCardList[indexPath.row].promotionDetail
         self.show(detailViewController, sender: nil)
+        
+        //Option 1 : cardID라는 key value를 가져와서 찾는 방식
+        let cardID = creditCardList[indexPath.row].id
+        //ref.child("Item\(cardID)/isSelected").setValue(true)
+        
+        //Option 2 : 특정 key 값이 cardID와 같은 객체를 찾아 스냅샷으로 찍음
+        ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
+            guard let self = self,
+                  let value = snapshot.value as? [String: [String: Any]],
+                  let key = value.keys.first else { return }
+            
+            self.ref.child("\(key)/isSelected").setValue(true)
+        } //cardID와 같은 객체를 가져오라는 명령
+        
     }
 }
