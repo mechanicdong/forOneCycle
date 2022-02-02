@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A5D9E5D01440C4AE8867485 /* libPods-CreditCardList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C661A73D9C21C68A105FB48F /* libPods-CreditCardList.a */; };
+		5A517BABBEDA6ADBBF8F6ED8 /* Pods_CreditCardList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56451A1A31988847C99505 /* Pods_CreditCardList.framework */; };
 		DD07BC5127A027C500011DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC5027A027C500011DE6 /* AppDelegate.swift */; };
 		DD07BC5327A027C500011DE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC5227A027C500011DE6 /* SceneDelegate.swift */; };
 		DD07BC5827A027C500011DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC5627A027C500011DE6 /* Main.storyboard */; };
@@ -20,12 +20,12 @@
 		DD07BC6F27A16C9F00011DE6 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07BC6E27A16C9F00011DE6 /* CardDetailViewController.swift */; };
 		DD07BC7127A16F0100011DE6 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC7027A16F0100011DE6 /* money.json */; };
 		DD07BC7327A3E74300011DE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD07BC7227A3E74300011DE6 /* GoogleService-Info.plist */; };
+		DD76506B27AABD0700A922C9 /* CreditCardDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76506A27AABD0700A922C9 /* CreditCardDummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		90F65352DEA7EC7E257E2A34 /* Pods-CreditCardList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreditCardList.debug.xcconfig"; path = "Target Support Files/Pods-CreditCardList/Pods-CreditCardList.debug.xcconfig"; sourceTree = "<group>"; };
 		9BF634400F0B69B020662011 /* Pods-CreditCardList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreditCardList.release.xcconfig"; path = "Target Support Files/Pods-CreditCardList/Pods-CreditCardList.release.xcconfig"; sourceTree = "<group>"; };
-		C661A73D9C21C68A105FB48F /* libPods-CreditCardList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CreditCardList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD07BC4D27A027C500011DE6 /* CreditCardList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditCardList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD07BC5027A027C500011DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD07BC5227A027C500011DE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		DD07BC6E27A16C9F00011DE6 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		DD07BC7027A16F0100011DE6 /* money.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = money.json; sourceTree = "<group>"; };
 		DD07BC7227A3E74300011DE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD76506A27AABD0700A922C9 /* CreditCardDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardDummy.swift; sourceTree = "<group>"; };
+		ED56451A1A31988847C99505 /* Pods_CreditCardList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreditCardList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A5D9E5D01440C4AE8867485 /* libPods-CreditCardList.a in Frameworks */,
+				5A517BABBEDA6ADBBF8F6ED8 /* Pods_CreditCardList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +68,7 @@
 		DBE0836F58F82A247AAB6166 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C661A73D9C21C68A105FB48F /* libPods-CreditCardList.a */,
+				ED56451A1A31988847C99505 /* Pods_CreditCardList.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,6 +107,7 @@
 				DD07BC6827A02C1000011DE6 /* CardListCell.swift */,
 				DD07BC6927A02C1000011DE6 /* CardListCell.xib */,
 				DD07BC7227A3E74300011DE6 /* GoogleService-Info.plist */,
+				DD76506A27AABD0700A922C9 /* CreditCardDummy.swift */,
 			);
 			path = CreditCardList;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 				DD07BC4927A027C500011DE6 /* Sources */,
 				DD07BC4A27A027C500011DE6 /* Frameworks */,
 				DD07BC4B27A027C500011DE6 /* Resources */,
+				980FAD9B7BF84BB97961C987 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,6 +184,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		980FAD9B7BF84BB97961C987 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CreditCardList/Pods-CreditCardList-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CreditCardList/Pods-CreditCardList-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CreditCardList/Pods-CreditCardList-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B1F98BD144B8FC4A1D7C1D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,6 +234,7 @@
 				DD07BC6F27A16C9F00011DE6 /* CardDetailViewController.swift in Sources */,
 				DD07BC6A27A02C1000011DE6 /* CardListCell.swift in Sources */,
 				DD07BC6527A027E800011DE6 /* CardListViewController.swift in Sources */,
+				DD76506B27AABD0700A922C9 /* CreditCardDummy.swift in Sources */,
 				DD07BC5127A027C500011DE6 /* AppDelegate.swift in Sources */,
 				DD07BC5327A027C500011DE6 /* SceneDelegate.swift in Sources */,
 			);
