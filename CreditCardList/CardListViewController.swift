@@ -106,6 +106,7 @@ class CardViewListController: UITableViewController {
         detailViewController.promotionDetail = creditCardList[indexPath.row].promotionDetail
         self.show(detailViewController, sender: nil)
         
+        //rtdb 실시간 데이터베이스 쓰기
         //Option 1 : cardID라는 key value를 가져와서 찾는 방식(경로를 알 때)
         //let cardID = creditCardList[indexPath.row].id
         //ref.child("Item\(cardID)/isSelected").setValue(true)
@@ -118,6 +119,21 @@ class CardViewListController: UITableViewController {
 //
 //            self.ref.child("\(key)/isSelected").setValue(true)
 //        } //cardID와 같은 객체를 가져오라는 명령
+        
+        //Firestore로 데이터베이스 쓰기 (isSelected 값 변경하기)
+        //Option 1 : 경로를 알고 있을 때(각 Collection의 문서와 ID를 알고 있을 때)
+        let cardID = creditCardList[indexPath.row].id
+//        db.collection("creditCardList").document("card\(cardID)").updateData(["isSelected": true])
+        
+        //Option 2 : 경로를 모를 때
+        db.collection("creditCardList").whereField("id", isEqualTo: cardID).getDocuments { snapshot, Error in
+            guard let document = snapshot?.documents.first else {
+                print("Error Firestore fetching document")
+                return
+            }
+            document.reference.updateData(["isSelected": true])
+        }        
+        
     }
     
     //RealTime DB Delete Start
