@@ -11,7 +11,9 @@ import Lottie
 class CardDetailViewController: UIViewController {
     var promotionDetail: PromotionDetail?
     
+    //View -> Class : AnimationView
     @IBOutlet weak var lottieView: AnimationView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
