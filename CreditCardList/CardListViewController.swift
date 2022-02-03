@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 import Firebase
 import FirebaseFirestore
+import Accelerate
 
 class CardViewListController: UITableViewController {
     //var ref: DatabaseReference! //Firebase Realtime Database를 가져올 수 있는 reference 값
@@ -132,8 +133,7 @@ class CardViewListController: UITableViewController {
                 return
             }
             document.reference.updateData(["isSelected": true])
-        }        
-        
+        }
     }
     
     //RealTime DB Delete Start
@@ -141,8 +141,9 @@ class CardViewListController: UITableViewController {
         return true
     } 
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //rtdb 실시간 데이터베이스 삭제
             //Option 1
 //            let cardID = creditCardList[indexPath.row].id
 //            ref.child("Item\(cardID)").removeValue() //경로 전체의 data가 삭제
@@ -151,11 +152,25 @@ class CardViewListController: UITableViewController {
 //            ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) { [weak self] snapshot in
 //                guard let self = self,
 //                      let value = snapshot.value as? [String : [String: Any]],
-//                      let key = value.keys.first else { return } //snapshot의 value는 array로 전달됨 -> id는 모든 객체에서 고유하기 때문에 Array를 주더라도 무조건 하나의 인덱스만을 가지기 때문에 first
+//                      let key = value.keys.first else { return }
+            //snapshot의 value는 array로 전달됨 -> id는 모든 객체에서 고유하기 때문에 Array를 주더라도 무조건 하나의 인덱스만을 가지기 때문에 first
 //                self.ref.child(key).removeValue()
 //            }
 //        }
-//    }
-    //RealTime DB Delete End
-//}
+            
+            //Firestore 데이터베이스 삭제
+            //Option 1: 경로를 알 때
+            let cardID = creditCardList[indexPath.row].id
+//            db.collection("creditCardList").document("card\(cardID)").delete()
+            
+            //Option 2: 경로를 모를 때
+            db.collection("creditCardList").whereField("id", isEqualTo: cardID).getDocuments { snapshot, Error in
+                guard let document = snapshot?.documents.first else {
+                    print("Error")
+                    return
+                }
+                document.reference.delete()
+            }
+        }
+    }
 }
