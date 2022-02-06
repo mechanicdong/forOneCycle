@@ -18,6 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Firebase 초기화
         FirebaseApp.configure()
         
+        Installations.installations().authTokenForcingRefresh(true) { result, Error in
+            if let error = Error {
+                print("ERROR")
+                return
+            }
+            guard let result = result else { return }
+            //
+            print("Installation auth Token: \(result.authToken)")
+        }
         return true
     }
 

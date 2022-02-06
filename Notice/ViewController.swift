@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseRemoteConfig
+import FirebaseAnalytics
 
 class ViewController: UIViewController {
     //원격 구성은 key-value 구성의 storage
@@ -58,6 +59,8 @@ extension ViewController {
                 
                 noticeVC.noticeContents = (title: title, detail: detail, date: date)
                 self.present(noticeVC, animated: true, completion: nil)
+            } else {
+                self.showEventAlert()
             }
         }
     }
@@ -67,3 +70,33 @@ extension ViewController {
     }
 }
 
+// A/B Testing
+extension ViewController {
+    // Popup이 안뜰 때 활성화
+    func showEventAlert() {
+        guard let remoteConfige = remoteConfig else { return }
+        
+        remoteConfige.fetch { status, _ in
+            if status == .success {
+                remoteConfige.activate(completion: nil)
+            } else {
+                print("ERROR: Config not fetched")
+            }
+            
+            let message = remoteConfige["mesaage"].stringValue ?? ""
+            let confirmAction = UIAlertAction(title: "확인하기", style: .default) {_ in
+                //Google Analytics, 확인버튼을 눌렀을 때 실제 Event Logging
+                Analytics.logEvent("promotion_alert", parameters: nil)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel , handler: nil)
+            let alertController = UIAlertController(title: "깜짝 이벤트", message: message, preferredStyle: .alert)
+            
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+    }
+}
