@@ -8,7 +8,7 @@
 import UIKit
 
 class NoticeViewController: UIViewController {
-    var noticeContents: (title: String, datail: String, date: String)?
+    var noticeContents: (title: String, detail: String, date: String)?
     
     @IBOutlet weak var noticeView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,7 +22,7 @@ class NoticeViewController: UIViewController {
          
         guard let noticeContents = noticeContents else { return }
         self.titleLabel.text = noticeContents.title
-        self.detailLabel.text = noticeContents.datail
+        self.detailLabel.text = noticeContents.detail
         self.dateLabel.text = noticeContents.date
     }
     
