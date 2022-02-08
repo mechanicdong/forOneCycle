@@ -16,6 +16,7 @@
 		DD60504827B1548400EA2C5F /* AlertListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60504627B1548400EA2C5F /* AlertListCell.swift */; };
 		DD60504927B1548400EA2C5F /* AlertListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD60504727B1548400EA2C5F /* AlertListCell.xib */; };
 		DD60504B27B1567300EA2C5F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60504A27B1567300EA2C5F /* Alert.swift */; };
+		DD60504D27B2992B00EA2C5F /* AddAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD60504C27B2992B00EA2C5F /* AddAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DD60504627B1548400EA2C5F /* AlertListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertListCell.swift; sourceTree = "<group>"; };
 		DD60504727B1548400EA2C5F /* AlertListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertListCell.xib; sourceTree = "<group>"; };
 		DD60504A27B1567300EA2C5F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DD60504C27B2992B00EA2C5F /* AddAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DD60503227B1530300EA2C5F /* SceneDelegate.swift */,
 				DD60503627B1530300EA2C5F /* Main.storyboard */,
 				DD60504427B1532500EA2C5F /* AlertListViewController.swift */,
+				DD60504C27B2992B00EA2C5F /* AddAlertViewController.swift */,
 				DD60504A27B1567300EA2C5F /* Alert.swift */,
 				DD60504627B1548400EA2C5F /* AlertListCell.swift */,
 				DD60504727B1548400EA2C5F /* AlertListCell.xib */,
@@ -153,6 +156,7 @@
 				DD60504827B1548400EA2C5F /* AlertListCell.swift in Sources */,
 				DD60504B27B1567300EA2C5F /* Alert.swift in Sources */,
 				DD60504527B1532500EA2C5F /* AlertListViewController.swift in Sources */,
+				DD60504D27B2992B00EA2C5F /* AddAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
