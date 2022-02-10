@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlertListViewController: UITableViewController {
     
     //tabieView에 뿌려질 Alert
     var alerts: [Alert] = []
 
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +45,8 @@ class AlertListViewController: UITableViewController {
             
             //여기선 인코딩
             UserDefaults.standard.set( try? PropertyListEncoder().encode(self.alerts), forKey: "alerts")
+            //add notification alarm to this selfCenter
+            self.userNotificationCenter.addNotificationRequest(by: newAlert)
             
             self.tableView.reloadData()
         }
@@ -96,12 +101,17 @@ extension AlertListViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             //dev notification deleting
             self.alerts.remove(at: indexPath.row)
             UserDefaults.standard.set( try? PropertyListEncoder().encode(self.alerts), forKey: "alerts")
+            
+            //Cell에서 삭제할 때 alarm도 삭제되도록
+            userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alerts[indexPath.row].id])
+            
             self.tableView.reloadData()
             return 
         default:

@@ -20,13 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        //사용자가 App을 열어 Active status가 되었을 때 badge 제거
-        UIApplication.shared.applicationIconBadgeNumber = 0 //badge number = 0 -> 사라지게 됨 
+
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        //사용자가 App을 열어 Active status가 되었을 때 badge 제거
+        UIApplication.shared.applicationIconBadgeNumber = 0 //badge number = 0 -> 사라지게 됨 
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

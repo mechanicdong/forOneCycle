@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        var userNotificationCenter: UNUserNotificationCenter?
+        let userNotificationCenter = UNUserNotificationCenter.current()
         
         //Set Notification Delegate
         UNUserNotificationCenter.current().delegate = self
         
         //For users approval at first time
         let authrizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
-        userNotificationCenter?.requestAuthorization(options: authrizationOptions) { _, error in
+        userNotificationCenter.requestAuthorization(options: authrizationOptions) { _, error in
             if let error = error {
                 print("ERROR: notification authrization request \(error.localizedDescription)")
             }
@@ -35,8 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        
-        
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 

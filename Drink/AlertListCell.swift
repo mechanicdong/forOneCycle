@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlertListCell: UITableViewCell {
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
     @IBOutlet weak var meridiemLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var alertSwitch: UISwitch!
@@ -18,8 +21,8 @@ class AlertListCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-
         
     }
     @IBAction func alertSwitchValueChanged(_ sender: UISwitch) {
@@ -28,6 +31,12 @@ class AlertListCell: UITableViewCell {
         
         alerts[sender.tag].isOn = sender.isOn
         UserDefaults.standard.set(try? PropertyListEncoder().encode(alerts), forKey: "alerts")
+        
+        if sender.isOn {
+            userNotificationCenter.addNotificationRequest(by: alerts[sender.tag])
+        } else { //Alert의 Switch가 off 될 때 alarm도 삭제되도록
+            userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alerts[sender.tag].id])
+        }
     }
     
 }
