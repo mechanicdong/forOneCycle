@@ -18,5 +18,10 @@ extension UNUserNotificationCenter {
         content.body = "세계 보건기구가 권장하는 하루 물 섭취량은 1.5~2L 입니다."
         content.sound = .default
         content.badge = 1
+        
+        //AddAlertViewController에서 설정된 pickedDate 일시의 alert trigger
+        let component = Calendar.current.dateComponents([.hour, .minute], from: alert.date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: alert.isOn) //Switch가 on 일때만 반복
+        
     }
 }
