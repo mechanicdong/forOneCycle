@@ -20,10 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        //사용자가 App을 열어 Active status가 되었을 때 badge 제거
+        UIApplication.shared.applicationIconBadgeNumber = 0 //badge number = 0 -> 사라지게 됨 
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
