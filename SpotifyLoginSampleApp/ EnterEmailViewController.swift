@@ -99,10 +99,10 @@ extension EnterEmailViewController: UITextFieldDelegate {
         var isEmailEmpty: Bool = false
         var isPasswordEmpty: Bool = false
         if let EmailEmpty: String = "" as? String {
-            isEmailEmpty = false
+             isEmailEmpty = false
         }
         if let passwordEmpty: String = "" as? String {
-            isPasswordEmpty = false
+             isPasswordEmpty = false
         }
         //let isEmailEmpty = emailTextField.text == ""
         //let isPasswordEmpty = passwordTextField.text = ""
