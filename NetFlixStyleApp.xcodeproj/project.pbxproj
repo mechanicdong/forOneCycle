@@ -12,6 +12,7 @@
 		DDBD4EC627B92BC100DCEA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBD4EC527B92BC100DCEA8E /* Assets.xcassets */; };
 		DDBD4EC927B92BC100DCEA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBD4EC727B92BC100DCEA8E /* LaunchScreen.storyboard */; };
 		DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */; };
+		DDBD4ED427B92EC700DCEA8E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDBD4ED327B92EC700DCEA8E /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDBD4ED427B92EC700DCEA8E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +82,9 @@
 			dependencies = (
 			);
 			name = NetFlixStyleApp;
+			packageProductDependencies = (
+				DDBD4ED327B92EC700DCEA8E /* SnapKit */,
+			);
 			productName = NetFlixStyleApp;
 			productReference = DDBD4EB927B92BBF00DCEA8E /* NetFlixStyleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +113,9 @@
 				Base,
 			);
 			mainGroup = DDBD4EB027B92BBF00DCEA8E;
+			packageReferences = (
+				DDBD4ED227B92EC700DCEA8E /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DDBD4EBA27B92BBF00DCEA8E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +356,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDBD4ED227B92EC700DCEA8E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDBD4ED327B92EC700DCEA8E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDBD4ED227B92EC700DCEA8E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDBD4EB127B92BBF00DCEA8E /* Project object */;
 }
