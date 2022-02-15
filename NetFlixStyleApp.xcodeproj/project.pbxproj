@@ -16,6 +16,7 @@
 		DDFC506F27BBCE9F001D7C0E /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDFC506E27BBCE9F001D7C0E /* Content.plist */; };
 		DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507027BBCEC0001D7C0E /* Content.swift */; };
 		DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */; };
+		DDFC507527BBEA66001D7C0E /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507427BBEA66001D7C0E /* ContentCollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DDFC506E27BBCE9F001D7C0E /* Content.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Content.plist; sourceTree = "<group>"; };
 		DDFC507027BBCEC0001D7C0E /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDFC507427BBEA66001D7C0E /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				DDFC506E27BBCE9F001D7C0E /* Content.plist */,
 				DDFC507027BBCEC0001D7C0E /* Content.swift */,
 				DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */,
+				DDFC507427BBEA66001D7C0E /* ContentCollectionViewHeader.swift */,
 			);
 			path = NetFlixStyleApp;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDBD4EBD27B92BBF00DCEA8E /* AppDelegate.swift in Sources */,
+				DDFC507527BBEA66001D7C0E /* ContentCollectionViewHeader.swift in Sources */,
 				DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */,
 				DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */,
 				DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */,

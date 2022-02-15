@@ -29,7 +29,10 @@ class HomeViewController: UICollectionViewController {
         contents = getContents()
         
         //CollectionView Item(Cell) 설정
-        collectionView.register(ContentCollectionViewCell, forCellWithReuseIdentifier: "ContentCollectionViewCell")
+        collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
+        
+        //Header의 경우 Cell이 아니므로 supplementaryView로 설정
+        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind:   UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
     }
     
     func getContents() -> [Content] {
@@ -56,6 +59,7 @@ extension HomeViewController {
     
     //Set CollectionView Cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         switch contents[indexPath.section].sectionType {
         case .basic, .large:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as? ContentCollectionViewCell else { return UICollectionViewCell() }
@@ -64,6 +68,18 @@ extension HomeViewController {
             return cell
         default:
             return UICollectionViewCell()
+        }
+    }
+    
+    //Header View 설정
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not deque Header") }
+             
+            headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
+            return headerView
+        } else {
+            return UICollectionReusableView()
         }
     }
     
