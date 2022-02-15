@@ -38,3 +38,32 @@ class HomeViewController: UICollectionViewController {
         return list
     }
 }
+
+//UICollectionView DataSource, Delegate
+extension HomeViewController {
+    //Section당 보여지는 Cell의 개수
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        default:
+            return contents[section].contentItem.count
+        }
+    }
+    
+    //Set CollectionView Cell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    //섹션 개수 설정
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return contents.count
+    }
+    
+    //cell 선택을 감지하는 delegate 설정
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionName = contents[indexPath.section].sectionName
+        print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 컨텐츠")
+    }
+}
