@@ -15,6 +15,7 @@
 		DDBD4ED427B92EC700DCEA8E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDBD4ED327B92EC700DCEA8E /* SnapKit */; };
 		DDFC506F27BBCE9F001D7C0E /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDFC506E27BBCE9F001D7C0E /* Content.plist */; };
 		DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507027BBCEC0001D7C0E /* Content.swift */; };
+		DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DDFC506E27BBCE9F001D7C0E /* Content.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Content.plist; sourceTree = "<group>"; };
 		DDFC507027BBCEC0001D7C0E /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				DDBD4ECA27B92BC100DCEA8E /* Info.plist */,
 				DDFC506E27BBCE9F001D7C0E /* Content.plist */,
 				DDFC507027BBCEC0001D7C0E /* Content.swift */,
+				DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */,
 			);
 			path = NetFlixStyleApp;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */,
 				DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */,
 				DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */,
+				DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

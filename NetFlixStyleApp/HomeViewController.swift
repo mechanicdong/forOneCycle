@@ -27,6 +27,9 @@ class HomeViewController: UICollectionViewController {
         
         //set data & reading data
         contents = getContents()
+        
+        //CollectionView Item(Cell) 설정
+        collectionView.register(ContentCollectionViewCell, forCellWithReuseIdentifier: "ContentCollectionViewCell")
     }
     
     func getContents() -> [Content] {
@@ -53,7 +56,15 @@ extension HomeViewController {
     
     //Set CollectionView Cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        switch contents[indexPath.section].sectionType {
+        case .basic, .large:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as? ContentCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.imageView.image = contents[indexPath.section].contentItem[indexPath.row].image
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
     
     //섹션 개수 설정
