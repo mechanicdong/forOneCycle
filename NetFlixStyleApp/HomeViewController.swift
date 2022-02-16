@@ -8,6 +8,8 @@
 //Snapkit을 사용하여 storyboard 없이 Code로 구현
 
 import UIKit
+//Simulator 없이 UI Preview를 보기 위해 SwiftUI 사용
+import SwiftUI
 
 class HomeViewController: UICollectionViewController {
     var contents: [Content] = []
@@ -22,7 +24,7 @@ class HomeViewController: UICollectionViewController {
         navigationController?.hidesBarsOnSwipe = true
         
         //add button
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(imageLiteralResourceName: "netflix_icon"), style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "netflix_icon"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: nil, action: nil)
         
         //set data & reading data
@@ -45,7 +47,7 @@ class HomeViewController: UICollectionViewController {
     }
 }
 
-//UICollectionView DataSource, Delegate
+//MARK: UICollectionView DataSource, Delegate
 extension HomeViewController {
     //Section당 보여지는 Cell의 개수
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,7 +73,7 @@ extension HomeViewController {
         }
     }
     
-    //Header View 설정
+    //Header View 설정(viewForSupplementaryElementOfKind)
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not deque Header") }
@@ -90,7 +92,26 @@ extension HomeViewController {
     
     //cell 선택을 감지하는 delegate 설정
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let sectionName = contents[indexPath.section].sectionName
         print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 컨텐츠")
     }
 }
+
+//SwiftUI를 활용한 미리보기
+//struct HomeViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container: UIViewControllerRepresentable {
+//        func makeUIViewController(context: Context) -> UIViewController {
+//            let layout = UICollectionViewFlowLayout()
+//            let homeViewController = HomeViewController(collectionViewLayout: layout)
+//            return UINavigationController(rootViewController: homeViewController)
+//        }
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+//        typealias UIViewControllerType = UIViewController
+//    }
+//}
+

@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD86AAA027BD3453008F3DD6 /* NetFlixStyleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetFlixStyleApp.entitlements; sourceTree = "<group>"; };
 		DDBD4EB927B92BBF00DCEA8E /* NetFlixStyleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetFlixStyleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		DDBD4EBB27B92BBF00DCEA8E /* NetFlixStyleApp */ = {
 			isa = PBXGroup;
 			children = (
+				DD86AAA027BD3453008F3DD6 /* NetFlixStyleApp.entitlements */,
 				DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */,
 				DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */,
 				DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */,
@@ -299,6 +301,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetFlixStyleApp/NetFlixStyleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6P7X76PR5Q;
@@ -327,6 +330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetFlixStyleApp/NetFlixStyleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6P7X76PR5Q;
