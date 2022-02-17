@@ -27,23 +27,39 @@ class HomeViewController: UICollectionViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "netflix_icon"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: nil, action: nil)
         
-        //set data & reading data
-        contents = getContents()
-        
+
         //CollectionView Item(Cell) 설정
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
         
         //Header의 경우 Cell이 아니므로 supplementaryView로 설정
-        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind:   UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
+        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
+        
+        //set data & reading data
+        contents = getContents()
+        
     }
     
     func getContents() -> [Content] {
         //Content plist의 경로를 가져오는 변수
         guard let path = Bundle.main.path(forResource: "Content", ofType: "plist"),
               let data = FileManager.default.contents(atPath: path),
-              let list = try? PropertyListDecoder().decode([Content].self, from: data) else { return []}
-        
+              let list = try? PropertyListDecoder().decode([Content].self, from: data) else { return [] }
         return list
+    }
+    
+    private func createBasicTypeSection() -> NSCollectionLayoutSection {
+        //item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .fractionalHeight(0.75))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 10, leading: 5, bottom: 0, trailing: 5)
+        //group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(200))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        return section
     }
 }
 
@@ -61,27 +77,13 @@ extension HomeViewController {
     
     //Set CollectionView Cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch contents[indexPath.section].sectionType {
         case .basic, .large:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as? ContentCollectionViewCell else { return UICollectionViewCell() }
-            
             cell.imageView.image = contents[indexPath.section].contentItem[indexPath.row].image
             return cell
         default:
             return UICollectionViewCell()
-        }
-    }
-    
-    //Header View 설정(viewForSupplementaryElementOfKind)
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not deque Header") }
-             
-            headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
-            return headerView
-        } else {
-            return UICollectionReusableView()
         }
     }
     
@@ -90,11 +92,23 @@ extension HomeViewController {
         return contents.count
     }
     
+    //Header View 설정(viewForSupplementaryElementOfKind)
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not dequeue Header") }
+            
+            headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
+            return headerView
+        } else {
+            return UICollectionReusableView()
+        }
+    }
+
     //cell 선택을 감지하는 delegate 설정
+    //셀 선택
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let sectionName = contents[indexPath.section].sectionName
-        print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 컨텐츠")
+        print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 콘텐츠")
     }
 }
 

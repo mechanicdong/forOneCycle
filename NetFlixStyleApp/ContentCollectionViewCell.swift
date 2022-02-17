@@ -24,7 +24,6 @@ class ContentCollectionViewCell: UICollectionViewCell {
         
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview() //딱 붙게 constraints 설정
-            
         }
     }
 }
