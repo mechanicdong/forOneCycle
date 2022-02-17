@@ -37,6 +37,9 @@ class HomeViewController: UICollectionViewController {
         //set data & reading data
         contents = getContents()
         
+        //layout()을 통해 생성된 레이아웃을 CollectionView에 적용
+        collectionView.collectionViewLayout = layout()
+        
     }
     
     func getContents() -> [Content] {
@@ -45,6 +48,22 @@ class HomeViewController: UICollectionViewController {
               let data = FileManager.default.contents(atPath: path),
               let list = try? PropertyListDecoder().decode([Content].self, from: data) else { return [] }
         return list
+    }
+    
+    
+    //각각의 section type에 대한 UICollectionViewLayout 생성
+    private func layout() -> UICollectionViewLayout {
+        return UICollectionViewCompositionalLayout { [weak self] sectionNumber, environment -> NSCollectionLayoutSection? in
+            
+            guard let self = self else { return nil}
+            
+            switch self.contents[sectionNumber].sectionType {
+            case .basic:
+                return self.createBasicTypeSection()
+            default:
+                return nil
+            }
+        }
     }
     
     private func createBasicTypeSection() -> NSCollectionLayoutSection {
@@ -59,7 +78,22 @@ class HomeViewController: UICollectionViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        
+        let sectionHeader = self.createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
+    }
+    
+    //Set SectionHeader Layout
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        //Section Header Size
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+        
+        //Section Header Layout
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader , alignment: .top)
+        
+        return sectionHeader
     }
 }
 
@@ -67,12 +101,15 @@ class HomeViewController: UICollectionViewController {
 extension HomeViewController {
     //Section당 보여지는 Cell의 개수
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return contents[section].contentItem.count
+        if contents[section].sectionType == .basic {
+            switch section {
+            case 0:
+                return 1
+            default:
+                return contents[section].contentItem.count
+            }
         }
+        return 0        
     }
     
     //Set CollectionView Cell
