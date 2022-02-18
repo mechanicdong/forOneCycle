@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4A867427BFD9B00097C216 /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A867327BFD9AF0097C216 /* ContentCollectionViewRankCell.swift */; };
 		DDBD4EBD27B92BBF00DCEA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */; };
 		DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */; };
 		DDBD4EC627B92BC100DCEA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBD4EC527B92BC100DCEA8E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD4A867327BFD9AF0097C216 /* ContentCollectionViewRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewRankCell.swift; sourceTree = "<group>"; };
 		DD86AAA027BD3453008F3DD6 /* NetFlixStyleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetFlixStyleApp.entitlements; sourceTree = "<group>"; };
 		DDBD4EB927B92BBF00DCEA8E /* NetFlixStyleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetFlixStyleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				DDFC507027BBCEC0001D7C0E /* Content.swift */,
 				DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */,
 				DDFC507427BBEA66001D7C0E /* ContentCollectionViewHeader.swift */,
+				DD4A867327BFD9AF0097C216 /* ContentCollectionViewRankCell.swift */,
 			);
 			path = NetFlixStyleApp;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				DDBD4EBD27B92BBF00DCEA8E /* AppDelegate.swift in Sources */,
 				DDFC507527BBEA66001D7C0E /* ContentCollectionViewHeader.swift in Sources */,
 				DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */,
+				DD4A867427BFD9B00097C216 /* ContentCollectionViewRankCell.swift in Sources */,
 				DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */,
 				DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */,
 				DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */,
