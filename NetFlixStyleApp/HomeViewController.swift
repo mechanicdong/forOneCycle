@@ -229,6 +229,12 @@ extension HomeViewController {
     //셀 선택
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionName = contents[indexPath.section].sectionName
+        //send data to MovieViewContoller
+        let layout = UICollectionViewLayout()
+        let movieViewController = MovieViewController(collectionViewLayout: layout)
+        let rootNavigationController = UINavigationController(rootViewController: movieViewController)
+        self.show(movieViewController, sender: nil)
+        
         print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 콘텐츠")
     }
 }

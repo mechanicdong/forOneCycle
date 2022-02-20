@@ -15,6 +15,7 @@
 		DDBD4EC927B92BC100DCEA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBD4EC727B92BC100DCEA8E /* LaunchScreen.storyboard */; };
 		DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */; };
 		DDBD4ED427B92EC700DCEA8E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDBD4ED327B92EC700DCEA8E /* SnapKit */; };
+		DDE4BDA927C2299C000C58AC /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4BDA827C2299C000C58AC /* MovieViewController.swift */; };
 		DDFC506F27BBCE9F001D7C0E /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDFC506E27BBCE9F001D7C0E /* Content.plist */; };
 		DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507027BBCEC0001D7C0E /* Content.swift */; };
 		DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */; };
@@ -32,6 +33,7 @@
 		DDBD4EC827B92BC100DCEA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDBD4ECA27B92BC100DCEA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DDE4BDA827C2299C000C58AC /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		DDFC506E27BBCE9F001D7C0E /* Content.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Content.plist; sourceTree = "<group>"; };
 		DDFC507027BBCEC0001D7C0E /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		DDFC507227BBE7BF001D7C0E /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */,
 				DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */,
 				DDBD4ED027B92C6000DCEA8E /* HomeViewController.swift */,
+				DDE4BDA827C2299C000C58AC /* MovieViewController.swift */,
 				DDBD4EC527B92BC100DCEA8E /* Assets.xcassets */,
 				DDBD4EC727B92BC100DCEA8E /* LaunchScreen.storyboard */,
 				DDBD4ECA27B92BC100DCEA8E /* Info.plist */,
@@ -168,6 +171,7 @@
 				DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */,
 				DD4A867427BFD9B00097C216 /* ContentCollectionViewRankCell.swift in Sources */,
 				DDBD4ED127B92C6000DCEA8E /* HomeViewController.swift in Sources */,
+				DDE4BDA927C2299C000C58AC /* MovieViewController.swift in Sources */,
 				DD4A867627C121640097C216 /* ContentCollectionViewMainCell.swift in Sources */,
 				DDFC507127BBCEC0001D7C0E /* Content.swift in Sources */,
 				DDFC507327BBE7BF001D7C0E /* ContentCollectionViewCell.swift in Sources */,
