@@ -17,6 +17,16 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
     let movieButton = UIButton()
     let categoryButton = UIButton()
     
+    //contentStackView (in baseStackView)
+    let imageView = UIImageView()
+    let descriptionLabel = UILabel()
+    let contentStackView = UIStackView()
+    
+    //set contentStackView's Button
+    let plusButton = UIButton()
+    let playButton = UIButton()
+    let infoButton = UIButton()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -29,6 +39,65 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         baseStackView.alignment = .center
         baseStackView.distribution = .fillProportionally
         baseStackView.spacing = 5
+        
+        //StackView에 넣을 땐 addArrangedSubview
+        [imageView, descriptionLabel, contentStackView].forEach {
+            baseStackView.addArrangedSubview($0)
+        }
+        
+        //set imageView
+        imageView.contentMode = .scaleAspectFit
+        imageView.snp.makeConstraints {
+            $0.width.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(imageView.snp.width)
+        }
+        
+        //set descriptionLabel
+        descriptionLabel.font = .systemFont(ofSize: 13)
+        descriptionLabel.textColor = .white
+        descriptionLabel.sizeToFit()
+        
+        //set contentStackView
+        contentStackView.axis = .horizontal
+        contentStackView.alignment = .center
+        contentStackView.distribution = .equalCentering
+        contentStackView.spacing = 20
+        
+        [plusButton, infoButton].forEach {
+            //contentStackView.addArrangedSubview($0)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+            $0.setTitleColor(.white, for: .normal)
+            $0.imageView?.tintColor = .white
+            $0.adjustVerticalLayout(5)
+        }
+        
+        plusButton.setTitle("내가 찜한 컨텐츠", for: .normal)
+        plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+                
+        infoButton.setTitle("정보", for: .normal)
+        infoButton.setImage(UIImage(systemName: "info"), for: .normal)
+        infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+        
+        //contentStackView.addArrangedSubview(playButton)
+        playButton.setTitle("재생", for: .normal)
+        playButton.setTitleColor(.black, for: .normal)
+        playButton.backgroundColor = .white
+        playButton.layer.cornerRadius = 3
+        playButton.snp.makeConstraints {
+            $0.width.equalTo(90)
+            $0.height.equalTo(30)
+        }
+        playButton.addTarget(self , action: #selector(playButtonTapped) , for: .touchUpInside)
+        
+        [plusButton, playButton, infoButton].forEach {
+            contentStackView.addArrangedSubview($0)
+        }
+        
+        contentStackView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(30)
+            $0.height.equalTo(60)
+        }
         
         //Set Autolayout
         baseStackView.snp.makeConstraints {
@@ -75,4 +144,27 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
     @objc func categoryButtonTapped(sender: UIButton!) {
         print("TEST: Category Button Tapped")
     }
+    
+    @objc func plusButtonTapped(sender: UIButton!) {
+        print("TEST: Plus Button Tapped")
+    }
+    
+    @objc func infoButtonTapped(sender: UIButton!) {
+        print("TEST: Info Button Tapped")
+    }
+    
+    @objc func playButtonTapped(sender: UIButton!) {
+        print("TEST: Play Button Tapped")
+    }
 }
+
+extension UIButton {
+    
+    func adjustVerticalLayout(_ spacing: CGFloat = 0) {
+        let imageSize = self.imageView?.frame.size ?? .zero
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0)
+        let titleLabelSize = self.titleLabel?.frame.size ?? .zero
+        self.imageEdgeInsets = UIEdgeInsets(top: -(titleLabelSize.height + spacing), left: 0, bottom: 0, right: -titleLabelSize.width)
+    }
+}
+
