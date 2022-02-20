@@ -47,6 +47,7 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         
         //set imageView
         imageView.contentMode = .scaleAspectFit
+        
         imageView.snp.makeConstraints {
             $0.width.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(imageView.snp.width)
@@ -64,11 +65,17 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         contentStackView.spacing = 20
         
         [plusButton, infoButton].forEach {
-            //contentStackView.addArrangedSubview($0)
-            $0.titleLabel?.font = .systemFont(ofSize: 13)
-            $0.setTitleColor(.white, for: .normal)
-            $0.imageView?.tintColor = .white
-            $0.adjustVerticalLayout(5)
+
+            var configuration = UIButton.Configuration.filled()
+            configuration.title = $0.titleLabel?.text
+            configuration.image = $0.imageView?.image
+            configuration.imagePadding = 10
+            configuration.baseBackgroundColor = .black
+            $0.configuration = configuration
+//            $0.titleLabel?.font = .systemFont(ofSize: 13)
+//            $0.setTitleColor(.white, for: .normal)
+//            $0.imageView?.tintColor = .white
+            
         }
         
         plusButton.setTitle("내가 찜한 컨텐츠", for: .normal)
@@ -80,7 +87,7 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         
         //contentStackView.addArrangedSubview(playButton)
-        playButton.setTitle("재생", for: .normal)
+        playButton.setTitle("재생 ▶︎", for: .normal)
         playButton.setTitleColor(.black, for: .normal)
         playButton.backgroundColor = .white
         playButton.layer.cornerRadius = 3
@@ -116,9 +123,10 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
             $0.layer.shadowColor = UIColor.black.cgColor //shadowColor는 CGColor를 상속받고 있음
             $0.layer.shadowOpacity = 1
             $0.layer.shadowRadius = 3
+            $0.titleLabel?.font = .systemFont(ofSize: 15)
         }
         
-        tvButton.setTitle("TV 프로그램", for: .normal)
+        tvButton.setTitle("시리즈", for: .normal)
         movieButton.setTitle("영화", for: .normal)
         categoryButton.setTitle("카테고리 ▼", for: .normal)
         
@@ -129,7 +137,8 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         
         menuStackView.snp.makeConstraints {
             $0.top.equalTo(baseStackView)
-            $0.leading.trailing.equalToSuperview().inset(30)
+            $0.leading.trailing.equalToSuperview().inset(65)
+            //menuStackView.spacing = 5
         }
     }
     
@@ -160,11 +169,14 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
 
 extension UIButton {
     
-    func adjustVerticalLayout(_ spacing: CGFloat = 0) {
-        let imageSize = self.imageView?.frame.size ?? .zero
-        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0)
-        let titleLabelSize = self.titleLabel?.frame.size ?? .zero
-        self.imageEdgeInsets = UIEdgeInsets(top: -(titleLabelSize.height + spacing), left: 0, bottom: 0, right: -titleLabelSize.width)
+    func adjustVerticalLayout(sender: UIButton!) {
+        //let imageSize = self.imageView?.frame.size ?? .zero
+        //self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0)
+        //let titleLabelSize = self.titleLabel?.frame.size ?? .zero
+        //self.imageEdgeInsets = UIEdgeInsets(top: -(titleLabelSize.height + spacing), left: 0, bottom: 0, right: -titleLabelSize.width)
+        var configuration = UIButton.Configuration.filled().self
+        configuration.titlePadding = 10
+        configuration.imagePadding = 20
     }
 }
 

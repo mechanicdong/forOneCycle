@@ -27,7 +27,7 @@ class HomeViewController: UICollectionViewController {
         //add button
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "netflix_icon"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: nil, action: nil)
-        
+        navigationItem.rightBarButtonItem?.tintColor = .white
 
         //CollectionView Item(Cell) 설정
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
@@ -201,7 +201,7 @@ extension HomeViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewMainCell", for: indexPath) as? ContentCollectionViewMainCell else { return UICollectionViewCell() }
             cell.imageView.image = mainItem?.image
             cell.descriptionLabel.text = mainItem?.description
-            
+
             return cell
         default:
             return UICollectionViewCell()
