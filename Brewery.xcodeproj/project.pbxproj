@@ -15,6 +15,7 @@
 		DDE4BDCE27C3CE3F000C58AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDE4BDCD27C3CE3F000C58AC /* SnapKit */; };
 		DDE4BDD027C3CE3F000C58AC /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DDE4BDCF27C3CE3F000C58AC /* SnapKit-Dynamic */; };
 		DDE4BDD327C3CE9F000C58AC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DDE4BDD227C3CE9F000C58AC /* Kingfisher */; };
+		DDE4BDD527C3CF03000C58AC /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4BDD427C3CF03000C58AC /* Beer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		DDE4BDC227C3CBBA000C58AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDE4BDC427C3CBBA000C58AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE4BDCA27C3CC01000C58AC /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = "<group>"; };
+		DDE4BDD427C3CF03000C58AC /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				DDE4BDB627C3CBB9000C58AC /* AppDelegate.swift */,
 				DDE4BDB827C3CBB9000C58AC /* SceneDelegate.swift */,
 				DDE4BDCA27C3CC01000C58AC /* BeerListViewController.swift */,
+				DDE4BDD427C3CF03000C58AC /* Beer.swift */,
 				DDE4BDBF27C3CBBA000C58AC /* Assets.xcassets */,
 				DDE4BDC127C3CBBA000C58AC /* LaunchScreen.storyboard */,
 				DDE4BDC427C3CBBA000C58AC /* Info.plist */,
@@ -152,6 +155,7 @@
 				DDE4BDCB27C3CC01000C58AC /* BeerListViewController.swift in Sources */,
 				DDE4BDB727C3CBB9000C58AC /* AppDelegate.swift in Sources */,
 				DDE4BDB927C3CBB9000C58AC /* SceneDelegate.swift in Sources */,
+				DDE4BDD527C3CF03000C58AC /* Beer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
