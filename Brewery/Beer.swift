@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Beer: Decodable {
+struct Beer: Decodable { //PUNK API는 POST 방식을 지원하지 않고 GET만 지원하므로 Decodable
     let id: Int?
     let name, taglineString, description, brewersTips, imageURL: String?
     let foodParing: [String]?
