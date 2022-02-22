@@ -16,12 +16,14 @@ struct Beer: Decodable { //PUNK API는 POST 방식을 지원하지 않고 GET만
     var tagLine: String {
         //". "로 잘라 배열화
         let tags = taglineString?.components(separatedBy: ". ")
+        
         //띄어쓰기 및 ".", "," 이 있거나 남아있다면 없애고 마지막에 # 붙이기
         let hashtags = tags?.map {
             "#" + $0.description.replacingOccurrences(of: " ", with: "")
                 .replacingOccurrences(of: ".", with: "")
                 .replacingOccurrences(of: ",", with: " #")
         }
+        
         return hashtags?.joined(separator: " ") ?? "" //ex:#tag #good #example
     }
     

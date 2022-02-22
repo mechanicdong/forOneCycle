@@ -47,4 +47,18 @@ class BeerListCell: UITableViewCell {
             $0.top.equalTo(nameLabel.snp.bottom).inset(5)
         }
     }
+    
+    //Cell의 외부에서 Data를 전달하는 함수
+    func configure(with beer: Beer) {
+        let imageURL = URL(string: beer.imageURL ?? "")
+        //Kingfisher를 통해 Image를 전달
+        beerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "beer_icon"))
+        nameLabel.text = beer.name ?? "이름 없는 맥주"
+        taglineLabel.text = beer.tagLine
+        
+        //Cell 우측 꺽새모양 화살표
+        accessoryType = .disclosureIndicator
+        //Cell을 Tap해도 음영 미발생
+        selectionStyle = .none
+    }
 }
