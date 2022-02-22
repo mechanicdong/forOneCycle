@@ -18,6 +18,10 @@ class BeerListViewController: UITableViewController {
         //1. UINavigationBar
         title = "브루어리"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Set UITableView
+        tableView.register(BeerListCell.self, forCellReuseIdentifier: "BeerListCell")
+        tableView.rowHeight = 150 //static하게 높이 설정
     }
 }
 
@@ -25,5 +29,14 @@ class BeerListViewController: UITableViewController {
 extension BeerListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return beerList.count //각각의 row 값은 맥주의 개수이므로
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BeerListCell", for: indexPath) as? BeerListCell else { return UITableViewCell() }
+        //맥주를 configure fucn에 넣어주기
+        let beer = beerList[indexPath.row]
+        cell.configure(with: beer)
+        
+        return cell
     }
 }
