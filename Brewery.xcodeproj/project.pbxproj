@@ -17,6 +17,7 @@
 		DDE4BDD327C3CE9F000C58AC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DDE4BDD227C3CE9F000C58AC /* Kingfisher */; };
 		DDE4BDD527C3CF03000C58AC /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4BDD427C3CF03000C58AC /* Beer.swift */; };
 		DDE4BDD727C5102B000C58AC /* BeerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4BDD627C5102B000C58AC /* BeerListCell.swift */; };
+		DDE4BDD927C52171000C58AC /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4BDD827C52171000C58AC /* BeerDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DDE4BDCA27C3CC01000C58AC /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = "<group>"; };
 		DDE4BDD427C3CF03000C58AC /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		DDE4BDD627C5102B000C58AC /* BeerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListCell.swift; sourceTree = "<group>"; };
+		DDE4BDD827C52171000C58AC /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				DDE4BDCA27C3CC01000C58AC /* BeerListViewController.swift */,
 				DDE4BDD427C3CF03000C58AC /* Beer.swift */,
 				DDE4BDD627C5102B000C58AC /* BeerListCell.swift */,
+				DDE4BDD827C52171000C58AC /* BeerDetailViewController.swift */,
 				DDE4BDBF27C3CBBA000C58AC /* Assets.xcassets */,
 				DDE4BDC127C3CBBA000C58AC /* LaunchScreen.storyboard */,
 				DDE4BDC427C3CBBA000C58AC /* Info.plist */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE4BDCB27C3CC01000C58AC /* BeerListViewController.swift in Sources */,
+				DDE4BDD927C52171000C58AC /* BeerDetailViewController.swift in Sources */,
 				DDE4BDB727C3CBB9000C58AC /* AppDelegate.swift in Sources */,
 				DDE4BDB927C3CBB9000C58AC /* SceneDelegate.swift in Sources */,
 				DDE4BDD527C3CF03000C58AC /* Beer.swift in Sources */,
