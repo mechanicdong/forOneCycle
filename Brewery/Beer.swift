@@ -10,7 +10,7 @@ import Foundation
 struct Beer: Decodable { //PUNK API는 POST 방식을 지원하지 않고 GET만 지원하므로 Decodable
     let id: Int?
     let name, taglineString, description, brewersTips, imageURL: String?
-    let foodParing: [String]?
+    let foodPairing: [String]?
     
     //해시태그처럼 보이게끔 파싱
     var tagLine: String {
@@ -33,6 +33,6 @@ struct Beer: Decodable { //PUNK API는 POST 방식을 지원하지 않고 GET만
         case taglineString = "tagline"
         case imageURL = "image_url"
         case brewersTips = "brewers_tips"
-        case foodParing = "food_paring"
+        case foodPairing = "food_pairing"
     }
 }

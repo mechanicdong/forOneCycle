@@ -46,8 +46,8 @@ extension BeerDetailViewController {
     //count of row
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section { //section별로 row 개수 다름
-        case 3: //foodparing
-            return beer?.foodParing?.count ?? 0
+        case 3: //foodpairing
+            return beer?.foodPairing?.count ?? 0
         default:
             return 1
         }
@@ -62,9 +62,9 @@ extension BeerDetailViewController {
             return "Description"
         case 2:
             return "Brewers Tips"
-        case 3: //if there is not foodparing, then
-            let isFoodParingEmpty = beer?.foodParing?.isEmpty ?? true
-            return isFoodParingEmpty ? nil : "Food Paring"
+        case 3: //if there is not foodpairing, then
+            let isFoodPairingEmpty = beer?.foodPairing?.isEmpty ?? true
+            return isFoodPairingEmpty ? nil : "Food Paring"
         default:
             return nil
         }
@@ -88,7 +88,7 @@ extension BeerDetailViewController {
             cell.textLabel?.text = beer?.brewersTips ?? "팁 없는 맥주"
             return cell
         case 3:
-            cell.textLabel?.text = beer?.foodParing?[indexPath.row] ?? ""
+            cell.textLabel?.text = beer?.foodPairing?[indexPath.row] ?? ""
             return cell
         default:
             return cell
