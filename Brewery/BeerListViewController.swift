@@ -12,6 +12,8 @@ class BeerListViewController: UITableViewController {
     var beerList = [Beer]()
     //Reading data from URL based on Page
     var currentPage = 1
+    //데이터를 중복으로 불러옴을 방지하는 변수
+    var dataTasks = [URLSessionDataTask]()
     
     
     override func viewDidLoad() {
@@ -26,12 +28,15 @@ class BeerListViewController: UITableViewController {
         tableView.register(BeerListCell.self, forCellReuseIdentifier: "BeerListCell")
         tableView.rowHeight = 150 //static하게 높이 설정
         
+        //Pagination(1 페이지에서 다음 페이지의 beer load를 위해), extension에도 UITableViewDataSourcePrefetching
+        tableView.prefetchDataSource = self
         fetchBeer(of: currentPage)
+        
     }
 }
 
 //UITableView's datasource, delegate setting
-extension BeerListViewController {
+extension BeerListViewController: UITableViewDataSourcePrefetching {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return beerList.count //각각의 row 값은 맥주의 개수이므로
     }
@@ -52,12 +57,28 @@ extension BeerListViewController {
         detailViewController.beer = selectedBeer
         self.show(detailViewController, sender: nil)
     }
+    
+    //prefetchRowsAt setting: executed after first page loading
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard currentPage != 1 else { return }
+        
+        indexPaths.forEach {
+            if ($0.row + 1)/25 + 1 == currentPage {
+                self.fetchBeer(of: currentPage)
+            }
+        }
+    }
+    
 }
 
 //Data fetching
 private extension BeerListViewController {
     func fetchBeer(of page: Int) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(page)") else { return }
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(page)"),
+              dataTasks.firstIndex(where: { task in
+                  task.originalRequest?.url == url //새롭게 요청된 URL이 함수안에 들어온 url에 없어야함(새로운 값이어야만)
+              }) == nil
+            else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -98,6 +119,6 @@ private extension BeerListViewController {
             }
         }
         dataTask.resume() //반드시 dataTask 실행
-        
+        dataTasks.append(dataTask) //Page 중복 읽어오기 방지
     }
 }
