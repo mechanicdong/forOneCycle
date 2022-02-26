@@ -10,6 +10,7 @@
 		DD4A867427BFD9B00097C216 /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A867327BFD9AF0097C216 /* ContentCollectionViewRankCell.swift */; };
 		DD4A867627C121640097C216 /* ContentCollectionViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A867527C121640097C216 /* ContentCollectionViewMainCell.swift */; };
 		DDA44C5727CA47CA008796CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44C5627CA47CA008796CB /* ContentView.swift */; };
+		DDA44C5927CA4C8D008796CB /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44C5827CA4C8D008796CB /* ContentDetailView.swift */; };
 		DDBD4EBD27B92BBF00DCEA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */; };
 		DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */; };
 		DDBD4EC627B92BC100DCEA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBD4EC527B92BC100DCEA8E /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		DD4A867527C121640097C216 /* ContentCollectionViewMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewMainCell.swift; sourceTree = "<group>"; };
 		DD86AAA027BD3453008F3DD6 /* NetFlixStyleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetFlixStyleApp.entitlements; sourceTree = "<group>"; };
 		DDA44C5627CA47CA008796CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDA44C5827CA4C8D008796CB /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		DDBD4EB927B92BBF00DCEA8E /* NetFlixStyleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetFlixStyleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				DDBD4EBC27B92BBF00DCEA8E /* AppDelegate.swift */,
 				DDBD4EBE27B92BBF00DCEA8E /* SceneDelegate.swift */,
 				DDA44C5627CA47CA008796CB /* ContentView.swift */,
+				DDA44C5827CA4C8D008796CB /* ContentDetailView.swift */,
 				DDA44C5527CA477B008796CB /* NetflixApp */,
 				DDBD4EC527B92BC100DCEA8E /* Assets.xcassets */,
 				DDBD4EC727B92BC100DCEA8E /* LaunchScreen.storyboard */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDBD4EBD27B92BBF00DCEA8E /* AppDelegate.swift in Sources */,
+				DDA44C5927CA4C8D008796CB /* ContentDetailView.swift in Sources */,
 				DDFC507527BBEA66001D7C0E /* ContentCollectionViewHeader.swift in Sources */,
 				DDBD4EBF27B92BBF00DCEA8E /* SceneDelegate.swift in Sources */,
 				DD4A867427BFD9B00097C216 /* ContentCollectionViewRankCell.swift in Sources */,

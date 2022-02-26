@@ -19,7 +19,7 @@ class HomeViewController: UICollectionViewController {
         super.viewDidLoad()
         
         //Set Navigation
-        navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.backgroundColor = .clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.hidesBarsOnSwipe = true
@@ -228,14 +228,22 @@ extension HomeViewController {
     //cell 선택을 감지하는 delegate 설정
     //셀 선택
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sectionName = contents[indexPath.section].sectionName
-        //send data to MovieViewContoller
-        let layout = UICollectionViewLayout()
+        //let sectionName = contents[indexPath.section].sectionName
+        //print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 콘텐츠")
+    //send data to MovieViewContoller_Start
+        /* let layout = UICollectionViewLayout()
         let movieViewController = MovieViewController(collectionViewLayout: layout)
         let rootNavigationController = UINavigationController(rootViewController: movieViewController)
-        self.show(movieViewController, sender: nil)
+        self.show(movieViewController, sender: nil) */
+    //send data to MovieViewContoller_End
         
-        print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 콘텐츠")
+        //if movie tapped then paged ContentDetailView updated SwiftUI
+        let isFirstSection = indexPath.section == 0
+        let selectedItem = isFirstSection ? mainItem : contents[indexPath.section].contentItem[indexPath.row] //initialized as a Item array
+        
+        let contentDetailView = ContentDetailView(item: selectedItem)
+        let hostingVC = UIHostingController(rootView: contentDetailView)
+        self.show(hostingVC, sender: nil)
     }
 }
 
