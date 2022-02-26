@@ -242,17 +242,17 @@ extension HomeViewController {
 //SwiftUI를 활용한 미리보기
 struct HomeViewController_Previews: PreviewProvider {
     static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
-    }
+        HomeViewControllerRepresentable().edgesIgnoringSafeArea(.all)
+    } 
+}
 
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> UIViewController {
-            let layout = UICollectionViewFlowLayout()
-            let homeViewController = HomeViewController(collectionViewLayout: layout)
-            return UINavigationController(rootViewController: homeViewController)
-        }
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-        typealias UIViewControllerType = UIViewController
+struct HomeViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let layout = UICollectionViewFlowLayout()
+        let homeViewController = HomeViewController(collectionViewLayout: layout)
+        return UINavigationController(rootViewController: homeViewController)
     }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+    typealias UIViewControllerType = UIViewController
 }
 

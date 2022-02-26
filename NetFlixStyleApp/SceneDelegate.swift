@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,7 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let windowScene = scene as? UIWindowScene else { return }
+        //SwiftUI로 리팩토링 20220226@LDH_Start
+        /* guard let windowScene = scene as? UIWindowScene else { return }
         self.window = UIWindow(windowScene: windowScene)
         
         //UICollectionView는 Flowlayout이 있어야만 생성가능
@@ -22,8 +24,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootNavigationController = UINavigationController(rootViewController: homeViewController)
         
         self.window?.rootViewController = rootNavigationController
+        self.window?.makeKeyAndVisible() */
+        //SwiftUI로 리팩토링 20220226@LDH_End
         
-        self.window?.makeKeyAndVisible()
+        let contentView = ContentView()
+        
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = UIHostingController(rootView: contentView) //SwiftUI에서 rootVC 설정은 UIHostingController 사용
+            self.window = window
+            window.makeKeyAndVisible()
+        }
         
     }
 
