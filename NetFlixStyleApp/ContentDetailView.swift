@@ -12,19 +12,28 @@ struct ContentDetailView: View {
     @State var item: Item?
     
     var body: some View {
-        VStack {
-            if let item = item {
-                Image(uiImage: item.image)
-                    .aspectRatio(contentMode: .fit)
-                
-                Text(item.description)
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                    .padding() //padding: 약간의 좌우 간격
-                
-            } else {
-                Color.white //background as white
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all) //safety area까지 검정색 설정
+            ZStack(alignment: .bottom) {
+                if let item = item {
+                    Image(uiImage: item.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200)
+                    
+                    Text(item.description)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .padding() //padding: 약간의 좌우 간격
+                        .foregroundColor(.primary)
+                        .background(Color.primary
+                                        .colorInvert()
+                                        .opacity(0.75)) //투명도 설정
+                    
+                } else {
+                    Color.white //background as white
+                }
             }
         }
     }
