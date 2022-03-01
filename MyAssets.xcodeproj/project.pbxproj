@@ -19,7 +19,7 @@
 		DD09B71F27CE4105000A5058 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD09B72127CE4107000A5058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD09B72427CE4107000A5058 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DD09B72D27CE4379000A5058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD09B72E27CE484F000A5058 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,10 +52,10 @@
 		DD09B71C27CE4105000A5058 /* MyAssets */ = {
 			isa = PBXGroup;
 			children = (
-				DD09B72D27CE4379000A5058 /* Info.plist */,
 				DD09B71D27CE4105000A5058 /* MyAssetsApp.swift */,
 				DD09B71F27CE4105000A5058 /* ContentView.swift */,
 				DD09B72127CE4107000A5058 /* Assets.xcassets */,
+				DD09B72E27CE484F000A5058 /* info.plist */,
 				DD09B72327CE4107000A5058 /* Preview Content */,
 			);
 			path = MyAssets;
@@ -273,8 +273,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyAssets/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P7X76PR5Q;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyAssets/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/leedonghee/Desktop/Study/Project/Upper Intermediate/MyAssets/MyAssets/info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,8 +304,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyAssets/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P7X76PR5Q;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyAssets/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/leedonghee/Desktop/Study/Project/Upper Intermediate/MyAssets/MyAssets/info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
