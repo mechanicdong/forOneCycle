@@ -12,6 +12,7 @@
 		DD09B72227CE4107000A5058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD09B72127CE4107000A5058 /* Assets.xcassets */; };
 		DD09B72527CE4107000A5058 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD09B72427CE4107000A5058 /* Preview Assets.xcassets */; };
 		DD09B73127CE4ACA000A5058 /* NavigationBarWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09B73027CE4ACA000A5058 /* NavigationBarWithButton.swift */; };
+		DDBD61FE27CFA6FF007F4A8D /* AssetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DD09B72427CE4107000A5058 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD09B72E27CE484F000A5058 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		DD09B73027CE4ACA000A5058 /* NavigationBarWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithButton.swift; sourceTree = "<group>"; };
+		DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				DD09B71D27CE4105000A5058 /* MyAssetsApp.swift */,
 				DD09B71F27CE4105000A5058 /* ContentView.swift */,
 				DD09B73027CE4ACA000A5058 /* NavigationBarWithButton.swift */,
+				DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */,
 				DD09B72127CE4107000A5058 /* Assets.xcassets */,
 				DD09B72E27CE484F000A5058 /* info.plist */,
 				DD09B72327CE4107000A5058 /* Preview Content */,
@@ -145,6 +148,7 @@
 				DD09B73127CE4ACA000A5058 /* NavigationBarWithButton.swift in Sources */,
 				DD09B72027CE4105000A5058 /* ContentView.swift in Sources */,
 				DD09B71E27CE4105000A5058 /* MyAssetsApp.swift in Sources */,
+				DDBD61FE27CFA6FF007F4A8D /* AssetMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
