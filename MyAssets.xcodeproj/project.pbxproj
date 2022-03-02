@@ -15,6 +15,7 @@
 		DDBD61FE27CFA6FF007F4A8D /* AssetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */; };
 		DDBD620027CFA925007F4A8D /* AssetMenuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBD61FF27CFA925007F4A8D /* AssetMenuButtonStyle.swift */; };
 		DDEBEA3827CFACF80099BB9B /* AssetMenuGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */; };
+		DDEBEA3A27CFB1E80099BB9B /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3927CFB1E80099BB9B /* AssetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenu.swift; sourceTree = "<group>"; };
 		DDBD61FF27CFA925007F4A8D /* AssetMenuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenuButtonStyle.swift; sourceTree = "<group>"; };
 		DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenuGridView.swift; sourceTree = "<group>"; };
+		DDEBEA3927CFB1E80099BB9B /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DDBD61FD27CFA6FF007F4A8D /* AssetMenu.swift */,
 				DDBD61FF27CFA925007F4A8D /* AssetMenuButtonStyle.swift */,
 				DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */,
+				DDEBEA3927CFB1E80099BB9B /* AssetView.swift */,
 				DD09B72127CE4107000A5058 /* Assets.xcassets */,
 				DD09B72E27CE484F000A5058 /* info.plist */,
 				DD09B72327CE4107000A5058 /* Preview Content */,
@@ -153,6 +156,7 @@
 			files = (
 				DDEBEA3827CFACF80099BB9B /* AssetMenuGridView.swift in Sources */,
 				DD09B73127CE4ACA000A5058 /* NavigationBarWithButton.swift in Sources */,
+				DDEBEA3A27CFB1E80099BB9B /* AssetView.swift in Sources */,
 				DD09B72027CE4105000A5058 /* ContentView.swift in Sources */,
 				DD09B71E27CE4105000A5058 /* MyAssetsApp.swift in Sources */,
 				DDBD61FE27CFA6FF007F4A8D /* AssetMenu.swift in Sources */,
