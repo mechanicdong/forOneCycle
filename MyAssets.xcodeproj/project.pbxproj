@@ -17,6 +17,7 @@
 		DDEBEA3827CFACF80099BB9B /* AssetMenuGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */; };
 		DDEBEA3A27CFB1E80099BB9B /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3927CFB1E80099BB9B /* AssetView.swift */; };
 		DDEBEA3C27D248BE0099BB9B /* AssetBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3B27D248BE0099BB9B /* AssetBanner.swift */; };
+		DDEBEA3E27D2496A0099BB9B /* BannerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBEA3D27D2496A0099BB9B /* BannerCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenuGridView.swift; sourceTree = "<group>"; };
 		DDEBEA3927CFB1E80099BB9B /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		DDEBEA3B27D248BE0099BB9B /* AssetBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBanner.swift; sourceTree = "<group>"; };
+		DDEBEA3D27D2496A0099BB9B /* BannerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				DDEBEA3727CFACF80099BB9B /* AssetMenuGridView.swift */,
 				DDEBEA3927CFB1E80099BB9B /* AssetView.swift */,
 				DDEBEA3B27D248BE0099BB9B /* AssetBanner.swift */,
+				DDEBEA3D27D2496A0099BB9B /* BannerCard.swift */,
 				DD09B72127CE4107000A5058 /* Assets.xcassets */,
 				DD09B72E27CE484F000A5058 /* info.plist */,
 				DD09B72327CE4107000A5058 /* Preview Content */,
@@ -164,6 +167,7 @@
 				DD09B72027CE4105000A5058 /* ContentView.swift in Sources */,
 				DD09B71E27CE4105000A5058 /* MyAssetsApp.swift in Sources */,
 				DDBD61FE27CFA6FF007F4A8D /* AssetMenu.swift in Sources */,
+				DDEBEA3E27D2496A0099BB9B /* BannerCard.swift in Sources */,
 				DDBD620027CFA925007F4A8D /* AssetMenuButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
