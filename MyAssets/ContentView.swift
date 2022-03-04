@@ -19,7 +19,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Color.white //Asset View will add
+            AssetView()
                 .edgesIgnoringSafeArea(.all)
                 .tabItem {
                     Image(systemName: "dollarsign.circle.fill")
