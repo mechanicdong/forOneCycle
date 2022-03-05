@@ -10,16 +10,17 @@ import UIKit
 
 struct PageViewController<Page: View>: UIViewControllerRepresentable {
     var pages: [Page]
-    //@Binding을 이용하여 현재 어떤 페이지가 보여지는지 확인
+    //@Binding을 이용하여 현재(동적으로) 어떤 페이지가 보여지는지 확인 - 데이터 업데이트 조정
     @Binding var currentPage: Int
     
     //UIViewControllerRepresentable 프로토콜 준수사항 1
+    //swiping interactions to move from page to page
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     //UIViewControllerRepresentable 프로토콜 준수사항 2
-    func makeUIViewController(context: Context) -> some UIPageViewController {
+    func makeUIViewController(context: Context) -> UIPageViewController {
         let pageViewController = UIPageViewController(
             transitionStyle: .scroll,
             navigationOrientation: .horizontal
@@ -31,9 +32,9 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
     }
     
     //UIViewControllerRepresentable 프로토콜 준수사항 3
-    func updateUIViewController(_ pageViewController: UIViewControllerType, context: Context) {
+    func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
         pageViewController.setViewControllers(
-            [context.coordinator.controller[currentPage]],
+            [context.coordinator.controllers[currentPage]],
             direction: .forward,
             animated: true
         )
