@@ -71,7 +71,7 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
             if completed,
                let visibleViewController = pageViewController.viewControllers?.first,
                let index = controllers.firstIndex(of: visibleViewController) {
-                parent.currentPage = index
+                parent.currentPage = index //Bingding된 currentPage와 연결
             }
         }
     }
