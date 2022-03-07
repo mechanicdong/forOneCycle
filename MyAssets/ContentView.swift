@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //below tap bar create
-    @State private var selection: Tab = .asset
+   @State private var selection: Tab = .asset
     enum Tab {
         case asset
         case recommend
