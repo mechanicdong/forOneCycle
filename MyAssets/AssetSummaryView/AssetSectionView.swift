@@ -23,7 +23,7 @@ struct AssetSectionView: View {
                         .foregroundColor(.primary)
                 }
                 Divider()
-            }
+            } //end of ForEach
         }
         .padding()
     }
