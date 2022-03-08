@@ -18,3 +18,9 @@ https://zeddios.tistory.com/763
 
 
 https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit
+
+
+#### ObservableObject protocol used in AssetSummaryData class 
+
+
+---> decoding된 (assets) data 내보내기(@Published, class에서만 사용가능)
