@@ -1,5 +1,14 @@
 # MyAssets
 
+SwiftUI Framework을 사용한 프로젝트
+
+
+SwiftUI는 UIKit을 감싼 형태이며 storyboard를 사용했을 땐 명령형 언어지만 SwiftUI는 선언형이다
+
+
+
+
+
 ### UIHostingController
 #### UIKit에서 SwiftUI 사용 시
 
