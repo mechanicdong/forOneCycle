@@ -1,11 +1,17 @@
 # MyAssets
 
-SwiftUI Framework을 사용한 프로젝트
+
+<img width="300" alt="MyAsset" src="https://user-images.githubusercontent.com/67154245/157443608-b45aba8b-e176-4e3d-a170-4a238fa99ee4.png">
+<img width="300" alt="MyAsset2" src="https://user-images.githubusercontent.com/67154245/157443710-e94d49ed-04bb-45e1-9afd-6818651e2b35.png">
+<img width="300" alt="MyAsset3" src="https://user-images.githubusercontent.com/67154245/157443753-ba360cac-b5f9-4d16-abca-70c2e96822f2.png">
+Card Section에서는 tabs로 update가 발생할 경우 빨간색 점으로 알림 표현
+
+
+
+# SwiftUI Framework을 사용한 MyAssets(내 자산) 프로젝트
 
 
 SwiftUI는 UIKit을 감싼 형태이며 storyboard를 사용했을 땐 명령형 언어지만 SwiftUI는 선언형이다
-
-
 
 
 
