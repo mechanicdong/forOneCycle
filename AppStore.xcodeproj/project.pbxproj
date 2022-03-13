@@ -15,6 +15,7 @@
 		DD14378F27DCE04000B7EE4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD14378E27DCE04000B7EE4B /* SnapKit */; };
 		DD14379227DCE07100B7EE4B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DD14379127DCE07000B7EE4B /* Kingfisher */; };
 		DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379527DE0EA300B7EE4B /* TodayViewController.swift */; };
+		DD14379827DE156600B7EE4B /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379727DE156600B7EE4B /* TodayCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DD14378527DCDF9900B7EE4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD14378727DCDF9900B7EE4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD14379527DE0EA300B7EE4B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DD14379727DE156600B7EE4B /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				DD14379527DE0EA300B7EE4B /* TodayViewController.swift */,
+				DD14379727DE156600B7EE4B /* TodayCollectionViewCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD14377C27DCDF9800B7EE4B /* SceneDelegate.swift in Sources */,
+				DD14379827DE156600B7EE4B /* TodayCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
