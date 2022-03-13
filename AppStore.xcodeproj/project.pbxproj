@@ -14,6 +14,7 @@
 		DD14378627DCDF9900B7EE4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD14378427DCDF9900B7EE4B /* LaunchScreen.storyboard */; };
 		DD14378F27DCE04000B7EE4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD14378E27DCE04000B7EE4B /* SnapKit */; };
 		DD14379227DCE07100B7EE4B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DD14379127DCE07000B7EE4B /* Kingfisher */; };
+		DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379527DE0EA300B7EE4B /* TodayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DD14378227DCDF9900B7EE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD14378527DCDF9900B7EE4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD14378727DCDF9900B7EE4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD14379527DE0EA300B7EE4B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +62,30 @@
 			children = (
 				DD14377927DCDF9800B7EE4B /* AppDelegate.swift */,
 				DD14377B27DCDF9800B7EE4B /* SceneDelegate.swift */,
-				DD14377D27DCDF9800B7EE4B /* TabBarController.swift */,
+				DD14379327DE0E0700B7EE4B /* Scenes(화면 관련) */,
 				DD14378227DCDF9900B7EE4B /* Assets.xcassets */,
 				DD14378427DCDF9900B7EE4B /* LaunchScreen.storyboard */,
 				DD14378727DCDF9900B7EE4B /* Info.plist */,
 			);
 			path = AppStore;
+			sourceTree = "<group>";
+		};
+		DD14379327DE0E0700B7EE4B /* Scenes(화면 관련) */ = {
+			isa = PBXGroup;
+			children = (
+				DD14379427DE0E3600B7EE4B /* Today */,
+				DD14377D27DCDF9800B7EE4B /* TabBarController.swift */,
+			);
+			name = "Scenes(화면 관련)";
+			path = "Scenes(화면 관련)";
+			sourceTree = "<group>";
+		};
+		DD14379427DE0E3600B7EE4B /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				DD14379527DE0EA300B7EE4B /* TodayViewController.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */,
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD14377C27DCDF9800B7EE4B /* SceneDelegate.swift in Sources */,
