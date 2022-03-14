@@ -1,0 +1,86 @@
+//
+//  FeatureSectionCollectionViewCell.swift
+//  AppStore
+//
+//  Created by 이동희 on 2022/03/14.
+//
+
+import UIKit
+import SnapKit
+
+final class FeatureSectionCollectionViewCell: UICollectionViewCell {
+    private lazy var typeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemBlue
+        label.font = .systemFont(ofSize: 12.0, weight: .semibold)
+        
+        return label
+    }()
+    
+    private lazy var appNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20.0, weight: .bold)
+        
+        return label
+    }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 16.0, weight: .semibold)
+        
+        return label
+    }()
+    
+    private lazy var imageview: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 7.0
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.separator.cgColor
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }()
+    
+    func setup() {
+        setupLayout()
+        
+        //for checking
+        typeLabel.text = "type"
+        appNameLabel.text = "app name"
+        descriptionLabel.text = "description"
+        imageview.backgroundColor = .lightGray
+    }
+    
+}
+
+private extension FeatureSectionCollectionViewCell {
+    func setupLayout() {
+        [
+            typeLabel,
+            appNameLabel,
+            descriptionLabel,
+            imageview
+        ].forEach {
+            addSubview($0)
+        }
+        
+        typeLabel.snp.makeConstraints {
+            $0.leading.trailing.top.equalToSuperview()
+        }
+        appNameLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(typeLabel.snp.bottom)
+        }
+        descriptionLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(appNameLabel.snp.bottom).offset(4.0)
+        }
+        imageview.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(8.0)
+            $0.bottom.equalToSuperview().inset(8.0)
+        }
+    }
+}
