@@ -17,6 +17,7 @@
 		DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379527DE0EA300B7EE4B /* TodayViewController.swift */; };
 		DD14379827DE156600B7EE4B /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379727DE156600B7EE4B /* TodayCollectionViewCell.swift */; };
 		DD14379A27DE24B800B7EE4B /* TodayCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379927DE24B800B7EE4B /* TodayCollectionHeaderView.swift */; };
+		DD14379C27DEF28600B7EE4B /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379B27DEF28600B7EE4B /* AppViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DD14379527DE0EA300B7EE4B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		DD14379727DE156600B7EE4B /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD14379927DE24B800B7EE4B /* TodayCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionHeaderView.swift; sourceTree = "<group>"; };
+		DD14379B27DEF28600B7EE4B /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		DD14379327DE0E0700B7EE4B /* Scenes(화면 관련) */ = {
 			isa = PBXGroup;
 			children = (
+				DD14379D27DEF28D00B7EE4B /* App */,
 				DD14379427DE0E3600B7EE4B /* Today */,
 				DD14377D27DCDF9800B7EE4B /* TabBarController.swift */,
 			);
@@ -92,6 +95,14 @@
 				DD14379927DE24B800B7EE4B /* TodayCollectionHeaderView.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		DD14379D27DEF28D00B7EE4B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD14379B27DEF28600B7EE4B /* AppViewController.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD14379A27DE24B800B7EE4B /* TodayCollectionHeaderView.swift in Sources */,
+				DD14379C27DEF28600B7EE4B /* AppViewController.swift in Sources */,
 				DD14377C27DCDF9800B7EE4B /* SceneDelegate.swift in Sources */,
 				DD14379827DE156600B7EE4B /* TodayCollectionViewCell.swift in Sources */,
 			);
