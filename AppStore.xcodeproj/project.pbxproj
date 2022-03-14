@@ -20,6 +20,7 @@
 		DD14379C27DEF28600B7EE4B /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379B27DEF28600B7EE4B /* AppViewController.swift */; };
 		DD14379F27DF109A00B7EE4B /* FeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14379E27DF109A00B7EE4B /* FeatureSectionView.swift */; };
 		DD1437A127DF18AF00B7EE4B /* FeatureSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A027DF18AF00B7EE4B /* FeatureSectionCollectionViewCell.swift */; };
+		DD1437A327DF211900B7EE4B /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A227DF211900B7EE4B /* SeparatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DD14379B27DEF28600B7EE4B /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		DD14379E27DF109A00B7EE4B /* FeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionView.swift; sourceTree = "<group>"; };
 		DD1437A027DF18AF00B7EE4B /* FeatureSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD1437A227DF211900B7EE4B /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				DD14379B27DEF28600B7EE4B /* AppViewController.swift */,
 				DD14379E27DF109A00B7EE4B /* FeatureSectionView.swift */,
 				DD1437A027DF18AF00B7EE4B /* FeatureSectionCollectionViewCell.swift */,
+				DD1437A227DF211900B7EE4B /* SeparatorView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */,
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
+				DD1437A327DF211900B7EE4B /* SeparatorView.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD14379A27DE24B800B7EE4B /* TodayCollectionHeaderView.swift in Sources */,
 				DD14379C27DEF28600B7EE4B /* AppViewController.swift in Sources */,

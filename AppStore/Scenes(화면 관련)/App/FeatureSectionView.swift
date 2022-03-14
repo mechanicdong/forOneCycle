@@ -28,6 +28,8 @@ final class FeatureSectionView: UIView {
         return collectionView
     }()
     
+    private let separatorView = SeparatorView(frame: .zero)
+    
     //FeatureSectionView이 UIView 이므로 ViewDidLoad에서 하지 않고 init 에서 실행
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,7 +73,8 @@ extension FeatureSectionView : UICollectionViewDelegateFlowLayout {
 private extension FeatureSectionView {
     func setupViews() {
         [
-            collectionView
+            collectionView,
+            separatorView
         ].forEach {
             addSubview($0)
         }
@@ -79,6 +82,11 @@ private extension FeatureSectionView {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalToSuperview().inset(16.0)
             $0.height.equalTo(snp.width)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(collectionView.snp.bottom).offset(16.0)
         }
     }
 }
