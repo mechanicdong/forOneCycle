@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class RankingFeatureSectionView: UIView {
-    private let cellHeight: CGFloat = 30.0
+    //private let cellHeight: CGFloat = 30.0
     
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
@@ -46,7 +46,7 @@ final class RankingFeatureSectionView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         
         collectionView.register(
-            UICollectionViewCell.self,
+            RankingFeatureSectionViewCell.self,
             forCellWithReuseIdentifier: "RankingFeatureSectionViewCell"
         )
         
@@ -70,8 +70,8 @@ final class RankingFeatureSectionView: UIView {
 extension RankingFeatureSectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(
-            width: collectionView.frame.width - 32.0 ,
-            height: cellHeight
+            width: collectionView.frame.width - 32.0,
+            height: RankingFeatureSectionViewCell.height
         )
     }
     
@@ -83,10 +83,11 @@ extension RankingFeatureSectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingFeatureSectionViewCell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingFeatureSectionViewCell", for: indexPath) as? RankingFeatureSectionViewCell
         
-        return cell
+        cell?.setup()
+        
+        return cell ?? UICollectionViewCell()
     }
 }
 
@@ -108,7 +109,7 @@ private extension RankingFeatureSectionView {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16.0)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(cellHeight * 3)
+            $0.height.equalTo(RankingFeatureSectionViewCell.height * 3)
         }
         
         separatorView.snp.makeConstraints {
