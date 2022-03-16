@@ -25,6 +25,12 @@
 		DD1437A727E0671300B7EE4B /* RankingFeatureSectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */; };
 		DDB429EA27E1C82400A6F4B3 /* ExchangeCodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */; };
 		DDB429EC27E1CAA800A6F4B3 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429EB27E1CAA800A6F4B3 /* AppDetailViewController.swift */; };
+		DDB429F027E2096500A6F4B3 /* Feature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB429ED27E2096500A6F4B3 /* Feature.plist */; };
+		DDB429F127E2096500A6F4B3 /* RankingFeature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB429EE27E2096500A6F4B3 /* RankingFeature.plist */; };
+		DDB429F227E2096500A6F4B3 /* Today.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB429EF27E2096500A6F4B3 /* Today.plist */; };
+		DDB429F527E20A6500A6F4B3 /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429F427E20A6500A6F4B3 /* Today.swift */; };
+		DDB429F727E20AE700A6F4B3 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429F627E20AE700A6F4B3 /* Feature.swift */; };
+		DDB429F927E20B2800A6F4B3 /* RankingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429F827E20B2800A6F4B3 /* RankingFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionViewCell.swift; sourceTree = "<group>"; };
 		DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCodeButtonView.swift; sourceTree = "<group>"; };
 		DDB429EB27E1CAA800A6F4B3 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
+		DDB429ED27E2096500A6F4B3 /* Feature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Feature.plist; sourceTree = "<group>"; };
+		DDB429EE27E2096500A6F4B3 /* RankingFeature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RankingFeature.plist; sourceTree = "<group>"; };
+		DDB429EF27E2096500A6F4B3 /* Today.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Today.plist; sourceTree = "<group>"; };
+		DDB429F427E20A6500A6F4B3 /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		DDB429F627E20AE700A6F4B3 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		DDB429F827E20B2800A6F4B3 /* RankingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,10 @@
 			children = (
 				DD14377927DCDF9800B7EE4B /* AppDelegate.swift */,
 				DD14377B27DCDF9800B7EE4B /* SceneDelegate.swift */,
+				DDB429F427E20A6500A6F4B3 /* Today.swift */,
+				DDB429F627E20AE700A6F4B3 /* Feature.swift */,
+				DDB429F827E20B2800A6F4B3 /* RankingFeature.swift */,
+				DDB429F327E209B100A6F4B3 /* Data */,
 				DD14379327DE0E0700B7EE4B /* Scenes(화면 관련) */,
 				DD14378227DCDF9900B7EE4B /* Assets.xcassets */,
 				DD14378427DCDF9900B7EE4B /* LaunchScreen.storyboard */,
@@ -124,6 +140,16 @@
 				DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		DDB429F327E209B100A6F4B3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DDB429EF27E2096500A6F4B3 /* Today.plist */,
+				DDB429ED27E2096500A6F4B3 /* Feature.plist */,
+				DDB429EE27E2096500A6F4B3 /* RankingFeature.plist */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +218,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB429F127E2096500A6F4B3 /* RankingFeature.plist in Resources */,
+				DDB429F227E2096500A6F4B3 /* Today.plist in Resources */,
+				DDB429F027E2096500A6F4B3 /* Feature.plist in Resources */,
 				DD14378627DCDF9900B7EE4B /* LaunchScreen.storyboard in Resources */,
 				DD14378327DCDF9900B7EE4B /* Assets.xcassets in Resources */,
 			);
@@ -205,8 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */,
+				DDB429F527E20A6500A6F4B3 /* Today.swift in Sources */,
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
 				DDB429EA27E1C82400A6F4B3 /* ExchangeCodeButtonView.swift in Sources */,
+				DDB429F927E20B2800A6F4B3 /* RankingFeature.swift in Sources */,
+				DDB429F727E20AE700A6F4B3 /* Feature.swift in Sources */,
 				DD1437A327DF211900B7EE4B /* SeparatorView.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD1437A727E0671300B7EE4B /* RankingFeatureSectionViewCell.swift in Sources */,

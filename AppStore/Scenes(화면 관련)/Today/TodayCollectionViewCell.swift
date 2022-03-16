@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class TodayCollectionViewCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
@@ -44,16 +45,21 @@ final class TodayCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    func setup() { // for checking setup
+    func setup(today: Today) { // for checking setup
         setupSubViews()
         //set shadow color
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 10
         
-        subTitleLabel.text = "서브타이틀"
-        descriptionLabel.text = "설명"
-        titleLabel.text = "앱 이름"
+        subTitleLabel.text = today.subTitle
+        descriptionLabel.text = today.description
+        titleLabel.text = today.title
+        //using kingfisher
+        //String value인 imageURL을 URL로 변환시켜야 함
+        if let imageURL = URL(string: today.imageURL) {
+            imageView.kf.setImage(with: imageURL)
+        } //if let인 이유는 URL 초기화 메소드의 리턴값이 Optional이기 때문
     }
 }
 

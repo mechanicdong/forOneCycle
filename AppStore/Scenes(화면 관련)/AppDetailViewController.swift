@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class AppDetailViewController: UIViewController {
+    private let today: Today
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -53,12 +54,29 @@ final class AppDetailViewController: UIViewController {
         return button
     }()
     
+    //receive today: Today data, this time is custom init start
+    init(today: Today) {
+        self.today = today
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //receive today: Today data, this time is custom init end
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground //for dark mode
         
         setupViews()
+        
+        appIconImageView.backgroundColor = .systemGray
+        titleLabel.text = today.title
+        subTitleLabel.text = today.subTitle
+        
         
     }
 }

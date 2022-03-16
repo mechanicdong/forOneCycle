@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 final class RankingFeatureSectionView: UIView {
-    //private let cellHeight: CGFloat = 30.0
+    //data from plist
+    private var rankingFeature: [RankingFeature] = []
     
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
@@ -59,6 +60,8 @@ final class RankingFeatureSectionView: UIView {
         super.init(frame: frame)
         
         setupViews()
+        fetchData()
+        collectionView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -79,13 +82,14 @@ extension RankingFeatureSectionView: UICollectionViewDelegateFlowLayout {
 
 extension RankingFeatureSectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return rankingFeature.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingFeatureSectionViewCell", for: indexPath) as? RankingFeatureSectionViewCell
         
-        cell?.setup()
+        let rankingFeature = rankingFeature[indexPath.row]
+        cell?.setup(rankingFeature: rankingFeature)
         
         return cell ?? UICollectionViewCell() //nil이 되면 안되니 임의의 cell
     }
@@ -117,6 +121,16 @@ private extension RankingFeatureSectionView {
             $0.bottom.leading.trailing.equalToSuperview()
         }
     }
+    
+    func fetchData() {
+        guard let url = Bundle.main.url(forResource: "RankingFeature", withExtension: "plist") else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            let result = try PropertyListDecoder().decode([RankingFeature].self, from: data)
+            rankingFeature = result
+        } catch {}
+    }
+    
 }
 
 

@@ -59,12 +59,12 @@ final class RankingFeatureSectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func setup() {
+    func setup(rankingFeature: RankingFeature) {
         setupLayout()
         
-        titleLabel.text = "앱 이름"
-        descriptionLabel.text = "대충 이런 앱입니다"
-        inAppPurchaseInfoLabel.isHidden = [true, false].randomElement() ?? true
+        titleLabel.text = rankingFeature.title
+        descriptionLabel.text = rankingFeature.description
+        inAppPurchaseInfoLabel.isHidden = !rankingFeature.isInPurchaseApp
     }
     
 }
@@ -86,6 +86,11 @@ private extension RankingFeatureSectionViewCell {
             $0.leading.equalTo(imageView.snp.trailing).offset(8.0)
             $0.trailing.equalTo(downloadButton.snp.leading) // ?
             $0.top.equalTo(imageView.snp.top).inset(8.0)
+        }
+        
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4.0)
+            $0.leading.equalTo(titleLabel.snp.leading)
         }
         
         downloadButton.snp.makeConstraints {
