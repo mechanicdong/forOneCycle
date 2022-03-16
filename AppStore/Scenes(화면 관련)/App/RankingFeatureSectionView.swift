@@ -87,7 +87,7 @@ extension RankingFeatureSectionView: UICollectionViewDataSource {
         
         cell?.setup()
         
-        return cell ?? UICollectionViewCell()
+        return cell ?? UICollectionViewCell() //nil이 되면 안되니 임의의 cell
     }
 }
 

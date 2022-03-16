@@ -23,6 +23,7 @@
 		DD1437A327DF211900B7EE4B /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A227DF211900B7EE4B /* SeparatorView.swift */; };
 		DD1437A527DF23A800B7EE4B /* RankingFeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A427DF23A800B7EE4B /* RankingFeatureSectionView.swift */; };
 		DD1437A727E0671300B7EE4B /* RankingFeatureSectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */; };
+		DDB429EA27E1C82400A6F4B3 /* ExchangeCodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DD1437A227DF211900B7EE4B /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		DD1437A427DF23A800B7EE4B /* RankingFeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionView.swift; sourceTree = "<group>"; };
 		DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionViewCell.swift; sourceTree = "<group>"; };
+		DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCodeButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				DD1437A227DF211900B7EE4B /* SeparatorView.swift */,
 				DD1437A427DF23A800B7EE4B /* RankingFeatureSectionView.swift */,
 				DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */,
+				DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			files = (
 				DD14379627DE0EA300B7EE4B /* TodayViewController.swift in Sources */,
 				DD14377E27DCDF9800B7EE4B /* TabBarController.swift in Sources */,
+				DDB429EA27E1C82400A6F4B3 /* ExchangeCodeButtonView.swift in Sources */,
 				DD1437A327DF211900B7EE4B /* SeparatorView.swift in Sources */,
 				DD14377A27DCDF9800B7EE4B /* AppDelegate.swift in Sources */,
 				DD1437A727E0671300B7EE4B /* RankingFeatureSectionViewCell.swift in Sources */,
