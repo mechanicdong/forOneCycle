@@ -57,7 +57,55 @@ final class AppDetailViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground //for dark mode
+        
+        setupViews()
+        
+    }
+}
+
+//MARK: set components layout
+private extension AppDetailViewController {
+    func setupViews() {
+        [appIconImageView,
+         titleLabel,
+         subTitleLabel,
+         downloadButton,
+         shareButton
+        ].forEach {
+            view.addSubview($0)
+        }
+        appIconImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(16.0)
+            $0.top.equalToSuperview().inset(32.0)
+            $0.height.equalTo(100.0)
+            $0.width.equalTo(appIconImageView.snp.height)
+        }
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(appIconImageView.snp.top)
+            $0.leading.equalTo(appIconImageView.snp.trailing).offset(16.0)
+            $0.trailing.equalToSuperview().inset(16.0)
+        }
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4.0)
+            $0.leading.equalTo(titleLabel.snp.leading)
+        }
+        
+        downloadButton.snp.makeConstraints {
+            $0.bottom.equalTo(appIconImageView.snp.bottom)
+            $0.height.equalTo(24.0)
+            $0.leading.equalTo(titleLabel.snp.leading)
+            $0.width.equalTo(60.0)
+        }
+        
+        shareButton.snp.makeConstraints {
+            $0.bottom.equalTo(appIconImageView.snp.bottom)
+            $0.height.equalTo(32.0)
+            $0.trailing.equalTo(titleLabel.snp.trailing)
+            $0.width.equalTo(32.0)
+        }
     }
     
+
     
 }
