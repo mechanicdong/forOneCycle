@@ -24,6 +24,7 @@
 		DD1437A527DF23A800B7EE4B /* RankingFeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A427DF23A800B7EE4B /* RankingFeatureSectionView.swift */; };
 		DD1437A727E0671300B7EE4B /* RankingFeatureSectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */; };
 		DDB429EA27E1C82400A6F4B3 /* ExchangeCodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */; };
+		DDB429EC27E1CAA800A6F4B3 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB429EB27E1CAA800A6F4B3 /* AppDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DD1437A427DF23A800B7EE4B /* RankingFeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionView.swift; sourceTree = "<group>"; };
 		DD1437A627E0671300B7EE4B /* RankingFeatureSectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionViewCell.swift; sourceTree = "<group>"; };
 		DDB429E927E1C82400A6F4B3 /* ExchangeCodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCodeButtonView.swift; sourceTree = "<group>"; };
+		DDB429EB27E1CAA800A6F4B3 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				DD14379D27DEF28D00B7EE4B /* App */,
 				DD14379427DE0E3600B7EE4B /* Today */,
 				DD14377D27DCDF9800B7EE4B /* TabBarController.swift */,
+				DDB429EB27E1CAA800A6F4B3 /* AppDetailViewController.swift */,
 			);
 			name = "Scenes(화면 관련)";
 			path = "Scenes(화면 관련)";
@@ -212,6 +215,7 @@
 				DD1437A127DF18AF00B7EE4B /* FeatureSectionCollectionViewCell.swift in Sources */,
 				DD14377C27DCDF9800B7EE4B /* SceneDelegate.swift in Sources */,
 				DD14379827DE156600B7EE4B /* TodayCollectionViewCell.swift in Sources */,
+				DDB429EC27E1CAA800A6F4B3 /* AppDetailViewController.swift in Sources */,
 				DD14379F27DF109A00B7EE4B /* FeatureSectionView.swift in Sources */,
 				DD1437A527DF23A800B7EE4B /* RankingFeatureSectionView.swift in Sources */,
 			);
