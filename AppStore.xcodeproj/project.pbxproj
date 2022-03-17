@@ -94,9 +94,7 @@
 			children = (
 				DD14377927DCDF9800B7EE4B /* AppDelegate.swift */,
 				DD14377B27DCDF9800B7EE4B /* SceneDelegate.swift */,
-				DDB429F427E20A6500A6F4B3 /* Today.swift */,
-				DDB429F627E20AE700A6F4B3 /* Feature.swift */,
-				DDB429F827E20B2800A6F4B3 /* RankingFeature.swift */,
+				DDB429FA27E3152000A6F4B3 /* Entities */,
 				DDB429F327E209B100A6F4B3 /* Data */,
 				DD14379327DE0E0700B7EE4B /* Scenes(화면 관련) */,
 				DD14378227DCDF9900B7EE4B /* Assets.xcassets */,
@@ -150,6 +148,16 @@
 				DDB429EE27E2096500A6F4B3 /* RankingFeature.plist */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		DDB429FA27E3152000A6F4B3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DDB429F427E20A6500A6F4B3 /* Today.swift */,
+				DDB429F627E20AE700A6F4B3 /* Feature.swift */,
+				DDB429F827E20B2800A6F4B3 /* RankingFeature.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

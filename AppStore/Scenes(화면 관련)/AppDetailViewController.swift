@@ -51,6 +51,9 @@ final class AppDetailViewController: UIViewController {
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.tintColor = .systemBlue
         
+        //add share action
+        button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -124,6 +127,10 @@ private extension AppDetailViewController {
         }
     }
     
+    @objc func didTapShareButton() {
+        let activityItems: [Any] = [today.title]
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        present(activityViewController, animated: true)
+    }
 
-    
 }
