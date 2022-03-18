@@ -79,6 +79,11 @@ final class AppDetailViewController: UIViewController {
         appIconImageView.backgroundColor = .systemGray
         titleLabel.text = today.title
         subTitleLabel.text = today.subTitle
+        
+        if let imageURL = URL(string: today.imageURL) {
+            appIconImageView.kf.setImage(with: imageURL)
+        }
+        
     }
 }
 

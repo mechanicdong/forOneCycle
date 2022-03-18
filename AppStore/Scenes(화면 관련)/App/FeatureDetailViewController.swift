@@ -75,6 +75,10 @@ final class FeatureDetailViewController: UIViewController {
         appIconImageView.backgroundColor = .systemGray
         titleLabel.text = feature.appName
         subTitleLabel.text = feature.description
+        
+        if let imageURL = URL(string: feature.imageURL) {
+            appIconImageView.kf.setImage(with: imageURL)
+        }
     }
 }
 
