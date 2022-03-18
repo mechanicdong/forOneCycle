@@ -20,14 +20,16 @@ final class TodayViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(TodayCollectionViewCell.self, forCellWithReuseIdentifier: "todayCell")
+        collectionView.register(
+            TodayCollectionViewCell.self,
+            forCellWithReuseIdentifier: "todayCell"
+        )
         
         collectionView.register(
             TodayCollectionHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "TodayCollectionHeaderView"
         )
-        
         
         return collectionView
     }()

@@ -1,21 +1,21 @@
 //
-//  AppDetailViewController.swift
+//  FeatureDetailViewController.swift
 //  AppStore
 //
-//  Created by 이동희 on 2022/03/16.
+//  Created by 이동희 on 2022/03/17.
 //
 
 import UIKit
 import SnapKit
 
-final class AppDetailViewController: UIViewController {
-    private let today: Today
+final class FeatureDetailViewController: UIViewController {
+    private let feature: Feature
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8.0
-        
+
         return imageView
     }()
     
@@ -57,9 +57,8 @@ final class AppDetailViewController: UIViewController {
         return button
     }()
     
-    //receive today: Today data, this time is custom init start
-    init(today: Today) {
-        self.today = today
+    init(feature: Feature) {
+        self.feature = feature
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -67,23 +66,19 @@ final class AppDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //receive today: Today data, this time is custom init end
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground //for dark mode
-        
+        view.backgroundColor = .systemBackground
         setupViews()
-        
         appIconImageView.backgroundColor = .systemGray
-        titleLabel.text = today.title
-        subTitleLabel.text = today.subTitle
+        titleLabel.text = feature.appName
+        subTitleLabel.text = feature.description
     }
 }
 
-//MARK: set components layout
-private extension AppDetailViewController {
+private extension FeatureDetailViewController {
     func setupViews() {
         [appIconImageView,
          titleLabel,
@@ -116,7 +111,6 @@ private extension AppDetailViewController {
             $0.leading.equalTo(titleLabel.snp.leading)
             $0.width.equalTo(60.0)
         }
-        
         shareButton.snp.makeConstraints {
             $0.bottom.equalTo(appIconImageView.snp.bottom)
             $0.height.equalTo(32.0)
@@ -126,9 +120,8 @@ private extension AppDetailViewController {
     }
     
     @objc func didTapShareButton() {
-        let activityItems: [Any] = [today.title]
+        let activityItems: [Any] = [feature.appName]
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         present(activityViewController, animated: true)
     }
-
 }

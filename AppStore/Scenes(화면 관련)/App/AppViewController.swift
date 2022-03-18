@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+
 //scrollView 위에 stackView 올리기
+// UIScrollView - UIStackView - UIView - UICollectionView
 final class AppViewController: UIViewController {
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView() //UIScrollView는 content가 담길 contentView 필수
     
@@ -21,7 +24,7 @@ final class AppViewController: UIViewController {
         let featureSectionView = FeatureSectionView(frame: .zero)
         let rankingFeatureSectionView = RankingFeatureSectionView(frame: .zero)
         let exchangeCodeButtonView = ExchangeCodeButtonView(frame: .zero)
-        
+     
         let spacingView = UIView()
         spacingView.snp.makeConstraints {
             $0.height.equalTo(100.0)
@@ -35,13 +38,13 @@ final class AppViewController: UIViewController {
         ].forEach {
             stackView.addArrangedSubview($0)
         }
-        
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(contentView)
         setupNavigationController()
         setupLayout()
     }

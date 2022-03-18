@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+// UIScrollView - UIStackView - UIView - UICollectionView
 final class FeatureSectionView: UIView {
     //data from plist
     private var featureList: [Feature] = []
@@ -38,7 +38,6 @@ final class FeatureSectionView: UIView {
         super.init(frame: frame)
         
         setupViews()
-        
         fetchData() //reloadData after read data
         collectionView.reloadData()
     }
@@ -75,6 +74,13 @@ extension FeatureSectionView : UICollectionViewDelegateFlowLayout {
     //섹션의 최소 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 32.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //self.window?.rootViewController?.present(FeatureDetailViewController(feature: ), animated: true)
+        let feature = featureList[indexPath.row]
+        let vc = FeatureDetailViewController(feature: feature)
+        self.window?.rootViewController?.present(vc, animated: true)
     }
 }
 

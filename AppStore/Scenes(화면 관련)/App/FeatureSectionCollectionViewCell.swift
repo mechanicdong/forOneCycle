@@ -10,7 +10,6 @@ import SnapKit
 import Kingfisher
 
 final class FeatureSectionCollectionViewCell: UICollectionViewCell {
-    
     private lazy var typeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
@@ -56,7 +55,6 @@ final class FeatureSectionCollectionViewCell: UICollectionViewCell {
         if let imageURL = URL(string: feature.imageURL) {
             imageview.kf.setImage(with: imageURL)
         }
-        
     }
     
 }
@@ -89,4 +87,9 @@ private extension FeatureSectionCollectionViewCell {
             $0.bottom.equalToSuperview().inset(8.0)
         }
     }
+
+
 }
+
+
+
