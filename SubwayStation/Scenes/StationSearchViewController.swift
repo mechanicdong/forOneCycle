@@ -11,10 +11,12 @@ import SnapKit
 class StationSearchViewController: UIViewController {
     private var numberOfCells: Int = 0
     
+    
     //create tableview
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.isHidden = true
         
         return tableView
@@ -52,6 +54,7 @@ class StationSearchViewController: UIViewController {
 extension StationSearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         numberOfCells = 10
+        tableView.reloadData()
         tableView.isHidden = false
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -71,6 +74,13 @@ extension StationSearchViewController: UITableViewDataSource {
         cell.textLabel?.text = "\(indexPath.item)"
         
         return cell
+    }
+}
+
+extension StationSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = StationDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
