@@ -9,10 +9,13 @@ import UIKit
 import SnapKit
 
 class StationSearchViewController: UIViewController {
+    private var numberOfCells: Int = 0
+    
     //create tableview
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.isHidden = true
         
         return tableView
     }()
@@ -31,6 +34,7 @@ class StationSearchViewController: UIViewController {
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "지하철역을 입력해주세요"
         searchController.obscuresBackgroundDuringPresentation = false // 색상 반투명 해제
+        searchController.searchBar.delegate = self
         
         navigationItem.searchController = searchController
     }
@@ -44,9 +48,21 @@ class StationSearchViewController: UIViewController {
     }
 }
 
+//SearchBar 탭 여부에 따라 TableView hidden
+extension StationSearchViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        numberOfCells = 10
+        tableView.isHidden = false
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        numberOfCells = 0
+        tableView.isHidden = true
+    }
+}
+
 extension StationSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return numberOfCells //0일 때 SearchBar가 기동 시 표기됨
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
