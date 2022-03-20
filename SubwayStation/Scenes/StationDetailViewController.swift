@@ -58,10 +58,8 @@ extension StationDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StationDetailCollectionViewCell", for: indexPath) as? StationDetailCollectionViewCell
-        
         cell?.setup()
-        
-        
+    
         return cell ?? UICollectionViewCell()
     }
 }

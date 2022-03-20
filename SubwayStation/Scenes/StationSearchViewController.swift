@@ -11,7 +11,6 @@ import SnapKit
 class StationSearchViewController: UIViewController {
     private var numberOfCells: Int = 0
     
-    
     //create tableview
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -83,4 +82,5 @@ extension StationSearchViewController: UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 

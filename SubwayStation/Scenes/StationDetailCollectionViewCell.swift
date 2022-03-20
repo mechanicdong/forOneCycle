@@ -32,7 +32,6 @@ final class StationDetailCollectionViewCell: UICollectionViewCell {
         layer.shadowRadius = 10
         backgroundColor = .systemBackground //기준값
         
-        
         [lineLabel, remainTimeLabel].forEach {
             addSubview($0)
         }
