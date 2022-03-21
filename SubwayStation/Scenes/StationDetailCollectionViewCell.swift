@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class StationDetailCollectionViewCell: UICollectionViewCell {
+    
     //set components
     private lazy var lineLabel: UILabel = {
         let label = UILabel()
@@ -24,7 +25,7 @@ final class StationDetailCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func setup() {
+    func setup(with realTimeArrival: StationArrivalDataResponseModel.RealTimeArrival) {
         //set layers property
         layer.cornerRadius = 12.0
         layer.shadowColor = UIColor.black.cgColor
@@ -44,7 +45,7 @@ final class StationDetailCollectionViewCell: UICollectionViewCell {
             $0.bottom.equalToSuperview().inset(16.0)
         }
         
-        lineLabel.text = "판교역 방면"
-        remainTimeLabel.text = "판교 도착"
+        lineLabel.text = realTimeArrival.line
+        remainTimeLabel.text = realTimeArrival.remainTime
     }
 }
