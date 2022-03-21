@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class StationSearchViewController: UIViewController {
     private var numberOfCells: Int = 0
@@ -26,6 +27,8 @@ class StationSearchViewController: UIViewController {
         
         setNavigationItems()
         setTableViewLayout()
+        
+        requestStationName()
     }
     
     private func setNavigationItems() {
@@ -46,6 +49,20 @@ class StationSearchViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    //data request method
+    private func requestStationName() {
+        let urlString = "http://openapi.seoul.go.kr:8088/sample/json/SearchInfoBySubwayNameService/1/5/서울"
+        
+        //'서울'이라는 한글 키워드가 url에 들어있으므로 변환 시 특수문자로 변경되는 현상
+        //addingPercentEncoding 사용
+        AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationResponseModel.self) { response in
+                guard case .success(let data) = response.result else { return }
+                print(data.stations)
+            }
+            .resume()
     }
 }
 
