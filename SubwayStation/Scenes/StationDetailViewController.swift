@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 final class StationDetailViewController: UIViewController {
     private lazy var refreshControl: UIRefreshControl = {
@@ -16,10 +17,7 @@ final class StationDetailViewController: UIViewController {
         return refreshControl
     }()
     
-    @objc func fetchData() {
-        print("REFRESH !")
-        refreshControl.endRefreshing()
-    }
+
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,7 +45,23 @@ final class StationDetailViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        fetchData()
+    }
+    
+    @objc private func fetchData() {
+        //refreshControl.endRefreshing()
         
+        //왕십리'역'으로 검색하거나 서울'역'으로 '역'을 붙이면 request 실패가 되는 API
+        let stationName = "서울역"
+        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName.replacingOccurrences(of: "역", with: ""))"
+        AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationArrivalDataResponseModel.self) { [weak self] response in
+                //서버 리프레싱의 실패 여부에 상관없이 분기 전에 refreshControl 해제
+                self?.refreshControl.endRefreshing() //closure이기 때문에 self를 붙임 -> [weak self]로 순환 참조 방지 for memory issue
+                guard case .success(let data) = response.result else { return }
+                print(data.realtimeArrivalList) //for checking
+            }
+            .resume()
     }
 }
 
