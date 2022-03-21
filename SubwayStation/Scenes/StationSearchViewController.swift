@@ -27,8 +27,6 @@ class StationSearchViewController: UIViewController {
         
         setNavigationItems()
         setTableViewLayout()
-        
-        requestStationName()
     }
     
     private func setNavigationItems() {
@@ -52,8 +50,9 @@ class StationSearchViewController: UIViewController {
     }
     
     //data request method
-    private func requestStationName() {
-        let urlString = "http://openapi.seoul.go.kr:8088/sample/json/SearchInfoBySubwayNameService/1/5/서울"
+    private func requestStationName(from stationName: String) {
+    
+        let urlString = "http://openapi.seoul.go.kr:8088/sample/json/SearchInfoBySubwayNameService/1/5/\(stationName)"
         
         //'서울'이라는 한글 키워드가 url에 들어있으므로 변환 시 특수문자로 변경되는 현상
         //addingPercentEncoding 사용
@@ -73,9 +72,14 @@ extension StationSearchViewController: UISearchBarDelegate {
         tableView.reloadData()
         tableView.isHidden = false
     }
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         numberOfCells = 0
         tableView.isHidden = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        requestStationName(from: searchText)
     }
 }
 

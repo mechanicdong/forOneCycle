@@ -16,9 +16,7 @@ final class StationDetailViewController: UIViewController {
         
         return refreshControl
     }()
-    
 
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: view.frame.width - 32.0,
@@ -51,8 +49,8 @@ final class StationDetailViewController: UIViewController {
     @objc private func fetchData() {
         //refreshControl.endRefreshing()
         
-        //왕십리'역'으로 검색하거나 서울'역'으로 '역'을 붙이면 request 실패가 되는 API
-        let stationName = "서울역"
+        //판교'역'으로 검색하거나 서울'역'으로 '역'을 붙이면 request 실패가 되는 API
+        let stationName = "판교역"
         let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName.replacingOccurrences(of: "역", with: ""))"
         AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationArrivalDataResponseModel.self) { [weak self] response in

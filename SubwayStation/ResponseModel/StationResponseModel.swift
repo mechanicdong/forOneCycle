@@ -12,19 +12,19 @@ struct StationResponseModel: Decodable {
     //StationResponseModel().stations 로 사용시 간단하게 됨
     var stations: [Station] { searchInfo.row }
     
-    private let searchInfo: SearchInfoBySubwayNameService
+    private let searchInfo: SearchInfoBySubwayNameServiceModel
     enum Codingkeys: String, CodingKey {
         case searchInfo = "SearchInfoBySubwayNameService"
     }
     
-    struct SearchInfoBySubwayNameService: Decodable {
+    struct SearchInfoBySubwayNameServiceModel: Decodable {
         var row: [Station] = []
     }
 }
 
 struct Station: Decodable {
-    var stationName: String
-    var lineNumber: String
+    let stationName: String
+    let lineNumber: String
     
     //실제 API 데이터와 우리가 사용할 변수명이 다르므로
     enum CodingKeys: String, CodingKey {
@@ -32,3 +32,5 @@ struct Station: Decodable {
         case lineNumber = "LINE_NUM"
     }
 }
+
+
