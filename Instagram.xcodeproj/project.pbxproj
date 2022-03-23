@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD0FF3D027EAD9AB000D4428 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */; };
 		DD0FF3D327EAE52E000D4428 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */; };
+		DD0FF3D527EAFE72000D4428 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3D427EAFE72000D4428 /* UIButton+.swift */; };
 		DD3C487727EAD4DC00534190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487627EAD4DC00534190 /* AppDelegate.swift */; };
 		DD3C487927EAD4DC00534190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487827EAD4DC00534190 /* SceneDelegate.swift */; };
 		DD3C487B27EAD4DC00534190 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487A27EAD4DC00534190 /* FeedViewController.swift */; };
@@ -22,6 +23,7 @@
 		953FF98BF2A743519B40771E /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		DD0FF3D427EAFE72000D4428 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		DD3C487327EAD4DC00534190 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C487627EAD4DC00534190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3C487827EAD4DC00534190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */,
 				DD3C487A27EAD4DC00534190 /* FeedViewController.swift */,
 				DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */,
+				DD0FF3D427EAFE72000D4428 /* UIButton+.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3C487B27EAD4DC00534190 /* FeedViewController.swift in Sources */,
+				DD0FF3D527EAFE72000D4428 /* UIButton+.swift in Sources */,
 				DD0FF3D027EAD9AB000D4428 /* TabBarController.swift in Sources */,
 				DD3C487727EAD4DC00534190 /* AppDelegate.swift in Sources */,
 				DD3C487927EAD4DC00534190 /* SceneDelegate.swift in Sources */,
