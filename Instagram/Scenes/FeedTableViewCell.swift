@@ -8,6 +8,19 @@
 import UIKit
 import SnapKit
 
+extension UIButton {
+    //좋아요 버튼의 크기가 commentButton, DMButton과 맞지 않아 조정
+    func setImage(systemName: String) {
+        contentHorizontalAlignment = .fill
+        contentVerticalAlignment = .fill
+        
+        imageView?.contentMode = .scaleAspectFit
+        //imageEdgeInsets = .zero //deprecated in iOS 15.0
+        
+        setImage(UIImage(systemName: systemName), for: .normal)
+    }
+}
+
 final class FeedTableViewCell: UITableViewCell {
     
     private lazy var postImageView: UIImageView = {
@@ -19,28 +32,30 @@ final class FeedTableViewCell: UITableViewCell {
     
     private lazy var likeButton: UIButton = {
         let Button = UIButton()
-        Button.setImage(UIImage(systemName: "heart"), for: .normal)
-        
+        //Button.setImage(UIImage(systemName: "heart"), for: .normal)
+        Button.setImage(systemName: "heart")
         return Button
     }()
     
     private lazy var commentButton: UIButton = {
         let Button = UIButton()
-        Button.setImage(UIImage(systemName: "message"), for: .normal)
-        
+        //Button.setImage(UIImage(systemName: "message"), for: .normal)
+        Button.setImage(systemName: "message")
         return Button
     }()
     
     private lazy var directMessageButton: UIButton = {
         let Button = UIButton()
-        Button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        //Button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        Button.setImage(systemName: "paperplane")
         
         return Button
     }()
     
     private lazy var bookmarkButton: UIButton = {
         let Button = UIButton()
-        Button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        //Button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        Button.setImage(systemName: "bookmark")
         
         return Button
     }()
