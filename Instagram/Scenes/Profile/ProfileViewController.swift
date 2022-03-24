@@ -99,10 +99,13 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
 }
 
-//collection view 간격 설정
+//collection view cell 크기 및 설정
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width: CGFloat = (collectionView.frame.width / 3) - 1.0
+        
         return CGSize(width: width, height: width)
     }
 }
@@ -111,23 +114,47 @@ private extension ProfileViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "UserName"
+        
         let settingButton = UIBarButtonItem(
             image: UIImage(systemName: "ellipsis"),
             style: .plain,
             target: self,
-            action: nil)
+            action: #selector(didTapRightBarButtonItem)) //action for alert action sheet
         navigationItem.rightBarButtonItem = settingButton
+    }
+    
+    @objc func didTapRightBarButtonItem() {
+        //make actionsheet
+        let actionSheet = UIAlertController(
+            title: "정말이요?",
+            message: "For real?",
+            preferredStyle: .actionSheet // or .alert
+        )
+        
+        [
+            UIAlertAction(title: "회원 정보 변경", style: .default) { _ in
+            print("회원정보변경")
+            },
+        UIAlertAction(title: "탈퇴하기", style: .destructive) { _ in
+            print("회원 탈퇴")
+            },
+        UIAlertAction(title: "닫기", style: .cancel) { _ in
+            print("닫기버튼 눌림")
+            }
+        ].forEach { actionSheet.addAction($0) }
+        
+        present(actionSheet, animated: true, completion: nil)
     }
     
     func setupLayout() {
         let buttonStackView = UIStackView(
-            arrangedSubviews: [followButton, messageButton]
+            arrangedSubviews: [ followButton, messageButton ]
         )
         buttonStackView.spacing = 4.0
         buttonStackView.distribution = .fillEqually //set width
         
         let dataStackView = UIStackView(
-            arrangedSubviews: [ photoDataView, followerDataView, followingDataView]
+            arrangedSubviews: [ photoDataView, followerDataView, followingDataView ]
         )
         dataStackView.spacing = 4.0
         dataStackView.distribution = .fillEqually
@@ -143,7 +170,7 @@ private extension ProfileViewController {
             view.addSubview($0)
         }
         
-        let inset: CGFloat = 16.0 //반복사용 높기때문에 상수설정
+        let inset: CGFloat = 16.0 //반복사용률 높기때문에 상수설정
         
         profileImageView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(inset) //네비게이션 타이틀바의 safeArea
