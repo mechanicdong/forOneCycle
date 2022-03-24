@@ -10,6 +10,8 @@
 		DD0FF3D027EAD9AB000D4428 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */; };
 		DD0FF3D327EAE52E000D4428 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */; };
 		DD0FF3D527EAFE72000D4428 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3D427EAFE72000D4428 /* UIButton+.swift */; };
+		DD0FF3D727EB104E000D4428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3D627EB104E000D4428 /* ProfileViewController.swift */; };
+		DD0FF3DB27EC4C0E000D4428 /* ProfileDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FF3DA27EC4C0E000D4428 /* ProfileDataView.swift */; };
 		DD3C487727EAD4DC00534190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487627EAD4DC00534190 /* AppDelegate.swift */; };
 		DD3C487927EAD4DC00534190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487827EAD4DC00534190 /* SceneDelegate.swift */; };
 		DD3C487B27EAD4DC00534190 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C487A27EAD4DC00534190 /* FeedViewController.swift */; };
@@ -24,6 +26,8 @@
 		DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		DD0FF3D427EAFE72000D4428 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		DD0FF3D627EB104E000D4428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD0FF3DA27EC4C0E000D4428 /* ProfileDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataView.swift; sourceTree = "<group>"; };
 		DD3C487327EAD4DC00534190 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C487627EAD4DC00534190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3C487827EAD4DC00534190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,11 +71,28 @@
 			isa = PBXGroup;
 			children = (
 				DD0FF3CF27EAD9AB000D4428 /* TabBarController.swift */,
-				DD3C487A27EAD4DC00534190 /* FeedViewController.swift */,
-				DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */,
-				DD0FF3D427EAFE72000D4428 /* UIButton+.swift */,
+				DD0FF3D827EB106B000D4428 /* Feed */,
+				DD0FF3D927EB106F000D4428 /* Profile */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DD0FF3D827EB106B000D4428 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				DD3C487A27EAD4DC00534190 /* FeedViewController.swift */,
+				DD0FF3D227EAE52E000D4428 /* FeedTableViewCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		DD0FF3D927EB106F000D4428 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DD0FF3D627EB104E000D4428 /* ProfileViewController.swift */,
+				DD0FF3DA27EC4C0E000D4428 /* ProfileDataView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		DD3C486A27EAD4DC00534190 = {
@@ -98,6 +119,7 @@
 				DD3C487627EAD4DC00534190 /* AppDelegate.swift */,
 				DD3C487827EAD4DC00534190 /* SceneDelegate.swift */,
 				DD0FF3D127EADA0B000D4428 /* Scenes */,
+				DD0FF3D427EAFE72000D4428 /* UIButton+.swift */,
 				DD3C487F27EAD4E000534190 /* Assets.xcassets */,
 				DD3C488127EAD4E000534190 /* LaunchScreen.storyboard */,
 				DD3C488427EAD4E000534190 /* Info.plist */,
@@ -223,7 +245,9 @@
 				DD0FF3D527EAFE72000D4428 /* UIButton+.swift in Sources */,
 				DD0FF3D027EAD9AB000D4428 /* TabBarController.swift in Sources */,
 				DD3C487727EAD4DC00534190 /* AppDelegate.swift in Sources */,
+				DD0FF3D727EB104E000D4428 /* ProfileViewController.swift in Sources */,
 				DD3C487927EAD4DC00534190 /* SceneDelegate.swift in Sources */,
+				DD0FF3DB27EC4C0E000D4428 /* ProfileDataView.swift in Sources */,
 				DD0FF3D327EAE52E000D4428 /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
