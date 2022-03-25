@@ -20,11 +20,40 @@ class FeedViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var imagePickerController: UIImagePickerController = {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary //present photolib
+        imagePickerController.allowsEditing = true //수정 기능 추가
+        imagePickerController.delegate = self
+        
+        return imagePickerController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
+    }
+}
+
+//image 선택 후 choose 클릭 후 반응하는 메소드
+extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImg: UIImage?
+        
+        if let editedImg = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            selectedImg = editedImg
+        } else if let originalImg = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImg = originalImg
+        }
+        
+        picker.dismiss(animated: true) { [weak self] in
+            let uploadViewController = UploadViewController()
+            let navigationController = UINavigationController(rootViewController: uploadViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            
+            self?.present(navigationController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -51,8 +80,12 @@ extension FeedViewController {
             image: UIImage(systemName: "plus.app"),
             style: .plain,
             target: self,
-            action: nil)
+            action: #selector(didUploadButtonTapped))
         navigationItem.rightBarButtonItem = uploadButton
+    }
+    
+    @objc func didUploadButtonTapped() {
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     func setupTableView() {
