@@ -40,7 +40,7 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var selectedImg: UIImage?
-        
+    
         if let editedImg = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             selectedImg = editedImg
         } else if let originalImg = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -49,8 +49,9 @@ extension FeedViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         picker.dismiss(animated: true) { [weak self] in
             let uploadViewController = UploadViewController()
+            //UINavigationController embedded
             let navigationController = UINavigationController(rootViewController: uploadViewController)
-            navigationController.modalPresentationStyle = .fullScreen
+            navigationController.modalPresentationStyle = .fullScreen // or formSheet
             
             self?.present(navigationController, animated: true, completion: nil)
         }
