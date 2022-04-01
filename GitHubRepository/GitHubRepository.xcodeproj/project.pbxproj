@@ -15,6 +15,7 @@
 		DD5B645527F6C3BE00DBEC2B /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5B645427F6C3BE00DBEC2B /* RepositoryListViewController.swift */; };
 		DD5B645727F6C4D700DBEC2B /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5B645627F6C4D700DBEC2B /* RepositoryListCell.swift */; };
 		DD5B645A27F6C50900DBEC2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD5B645927F6C50900DBEC2B /* SnapKit */; };
+		DD5B645C27F6D05A00DBEC2B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5B645B27F6D05A00DBEC2B /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DD58EE8927F17C470018E8A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5B645427F6C3BE00DBEC2B /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		DD5B645627F6C4D700DBEC2B /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
+		DD5B645B27F6D05A00DBEC2B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				DD58EE8627F17C470018E8A6 /* LaunchScreen.storyboard */,
 				DD5B645427F6C3BE00DBEC2B /* RepositoryListViewController.swift */,
 				DD5B645627F6C4D700DBEC2B /* RepositoryListCell.swift */,
+				DD5B645B27F6D05A00DBEC2B /* Repository.swift */,
 				DD58EE8927F17C470018E8A6 /* Info.plist */,
 			);
 			path = GitHubRepository;
@@ -215,6 +218,7 @@
 			files = (
 				DD58EE7C27F17C460018E8A6 /* AppDelegate.swift in Sources */,
 				DD5B645527F6C3BE00DBEC2B /* RepositoryListViewController.swift in Sources */,
+				DD5B645C27F6D05A00DBEC2B /* Repository.swift in Sources */,
 				DD58EE7E27F17C460018E8A6 /* SceneDelegate.swift in Sources */,
 				DD5B645727F6C4D700DBEC2B /* RepositoryListCell.swift in Sources */,
 			);

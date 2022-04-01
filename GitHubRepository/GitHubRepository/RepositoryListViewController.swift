@@ -13,7 +13,7 @@ class RepositoryListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = organization + "repositories"
+        self.navigationItem.title = organization + " repositories"
         
         self.refreshControl = UIRefreshControl()
         let refreshControl = self.refreshControl
