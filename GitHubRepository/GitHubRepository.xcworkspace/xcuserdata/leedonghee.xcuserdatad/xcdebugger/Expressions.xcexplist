@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RepositoryListViewController.fetchRepositories(of:):RepositoryListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
