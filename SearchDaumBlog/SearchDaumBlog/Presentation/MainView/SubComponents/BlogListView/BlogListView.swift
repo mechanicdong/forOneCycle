@@ -25,8 +25,6 @@ class BlogListView: UITableView {
  let cellData = PublishSubject<[BlogListCellData]>()
  
  */
-
-    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
@@ -39,7 +37,9 @@ class BlogListView: UITableView {
     }
     
     //cellForRowAt 함수를 Rx로 표현하면 다음과 같다!
-    private func bind(_ viewModel: BlogListViewModel) {
+    func bind(_ viewModel: BlogListViewModel) {
+        headerView.bind(viewModel.filterViewModel)
+        
         viewModel.cellData
             //.asDriver(onErrorJustReturn: []) //deleted for MVVM Refactoring
             .drive(self.rx.items) { tableview, row, data in
