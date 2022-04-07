@@ -40,7 +40,7 @@ class BlogListView: UITableView {
             .asDriver(onErrorJustReturn: [])
             .drive(self.rx.items) { tableview, row, data in
                 let index = IndexPath(row: row, section: 0)
-                let cell = tableview.dequeueReusableCell(withIdentifier: "BlogLisgCell", for: index) as! BlogListCell
+                let cell = tableview.dequeueReusableCell(withIdentifier: "BlogListCell", for: index) as! BlogListCell
                 cell.setData(data)
                 
                 return cell
