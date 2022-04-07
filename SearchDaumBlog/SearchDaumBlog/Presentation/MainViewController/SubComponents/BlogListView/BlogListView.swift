@@ -19,14 +19,18 @@ class BlogListView: UITableView {
             size: CGSize(width: UIScreen.main.bounds.width, height: 50)
         )
     )
-    
-    //MainVC에서 작업한 네트워크 값을 -> BlogListView,Cell 등
-    let cellData = PublishSubject<[BlogListCellData]>()
+/* deleted for MVVM Refactoring
+ 
+ //MainVC에서 작업한 네트워크 값을 -> BlogListView,Cell 등
+ let cellData = PublishSubject<[BlogListCellData]>()
+ 
+ */
+
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        bind()
+        //bind()
         attribute()
     }
     
@@ -35,9 +39,9 @@ class BlogListView: UITableView {
     }
     
     //cellForRowAt 함수를 Rx로 표현하면 다음과 같다!
-    private func bind() {
-        cellData
-            .asDriver(onErrorJustReturn: [])
+    private func bind(_ viewModel: BlogListViewModel) {
+        viewModel.cellData
+            //.asDriver(onErrorJustReturn: []) //deleted for MVVM Refactoring
             .drive(self.rx.items) { tableview, row, data in
                 let index = IndexPath(row: row, section: 0)
                 let cell = tableview.dequeueReusableCell(withIdentifier: "BlogListCell", for: index) as! BlogListCell
