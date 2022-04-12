@@ -43,6 +43,8 @@ class MainViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView() //TODO: 있고 없고 차이 확인
+        
+        tableView.register(TitleTextFieldCell.self, forCellReuseIdentifier: "TitleTextFieldCell")
     }
     
     private func layout() {
@@ -50,6 +52,18 @@ class MainViewController: UIViewController {
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    }
+}
+
+typealias Alert = (title: String, message: String?)
+extension Reactive where Base: MainViewController {
+    var setAlert: Binder<Alert> { //base = MainViewController
+        return Binder(base) { base, data in
+            let alertController = UIAlertController(title: data.title, message: data.message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alertController.addAction(action)
+            base.present(alertController, animated: true, completion: nil)
         }
     }
 }
