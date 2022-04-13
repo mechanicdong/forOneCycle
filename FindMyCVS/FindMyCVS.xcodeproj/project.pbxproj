@@ -48,6 +48,9 @@
 		DD6E54592807168E001F32E5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6E54582807168E001F32E5 /* libc++.tbd */; };
 		DD6E545B2807169F001F32E5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6E545A2807169F001F32E5 /* libxml2.tbd */; };
 		DD6E545D280716A9001F32E5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6E545C280716A9001F32E5 /* libsqlite3.tbd */; };
+		DD6E545F280719EA001F32E5 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E545E280719EA001F32E5 /* LocationData.swift */; };
+		DD6E546228071A65001F32E5 /* KLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E546128071A65001F32E5 /* KLDocument.swift */; };
+		DD6E546428071B46001F32E5 /* DetailListCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E546328071B46001F32E5 /* DetailListCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +106,9 @@
 		DD6E54582807168E001F32E5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		DD6E545A2807169F001F32E5 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		DD6E545C280716A9001F32E5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		DD6E545E280719EA001F32E5 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		DD6E546128071A65001F32E5 /* KLDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLDocument.swift; sourceTree = "<group>"; };
+		DD6E546328071B46001F32E5 /* DetailListCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 				DD6E53F528071210001F32E5 /* AppDelegate.swift */,
 				DD6E53F728071210001F32E5 /* SceneDelegate.swift */,
 				DD6E53F928071210001F32E5 /* ViewController.swift */,
+				DD6E5460280719F3001F32E5 /* Entities */,
 				DD6E53FB28071210001F32E5 /* Main.storyboard */,
 				DD6E53FE28071212001F32E5 /* Assets.xcassets */,
 				DD6E540028071212001F32E5 /* LaunchScreen.storyboard */,
@@ -228,6 +235,16 @@
 				DD6E54502807165B001F32E5 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD6E5460280719F3001F32E5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DD6E545E280719EA001F32E5 /* LocationData.swift */,
+				DD6E546128071A65001F32E5 /* KLDocument.swift */,
+				DD6E546328071B46001F32E5 /* DetailListCellData.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,8 +345,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6E545F280719EA001F32E5 /* LocationData.swift in Sources */,
+				DD6E546228071A65001F32E5 /* KLDocument.swift in Sources */,
 				DD6E53FA28071210001F32E5 /* ViewController.swift in Sources */,
 				DD6E53F628071210001F32E5 /* AppDelegate.swift in Sources */,
+				DD6E546428071B46001F32E5 /* DetailListCellData.swift in Sources */,
 				DD6E53F828071210001F32E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
